@@ -1,11 +1,14 @@
 ---
-import MainLayout from "@/layout/main-layout.astro";
-import MainHeading from "../components/atoms/headings/mainheading/MainHeading.astro";
-import Navbar from "../components/Navbar/Navbar";
-import SubHeading from "../components/atoms/headings/subheading/SubHeading.astro";
+import Hero from "@/components/hero/hero.astro";
+import MainLayout from "@/layout/main-layout.astro"; //Layout
+import MainHeading from "../components/atoms/headings/mainheading/MainHeading.astro"; //H1 headings
+import Navbar from "../components/Navbar/Navbar"; // Navbar
+import SubHeading from "../components/atoms/headings/subheading/SubHeading.astro"; //H3 headings
+import About from "@/components/about/About.astro";
 ---
 
 <MainLayout title="eVero: Where Innovative technology meets human care">
-  <!-- <MainHeading>Where innovation meets human creativity</MainHeading> -->
   <Navbar />
+  <Hero />
+  <About />
 </MainLayout>

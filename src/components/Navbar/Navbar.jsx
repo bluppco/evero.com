@@ -1,11 +1,12 @@
 import React from 'react';
 import {FaPlus, FaUser } from 'react-icons/fa'; //Social icons 
+import Button from '../atoms/button/Button.astro';
 import Facebookicon from "public/icons/facebook.svg";
 
 
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow-md p-2">
+    <nav className="bg-white shadow-md p-2 z-10">
       <div className="container mx-auto px-3 py-2 flex justify-between items-center gap-10">
         <div className="flex items-center space-x-2 cursor-pointer">
           <img src="./logo/Layer-21.svg" alt="eVero" className="h-12 mr-4" />
@@ -22,7 +23,7 @@ const Navbar = () => {
           </a>
         </div>
 
-        <div className="hidden xl:flex items-center space-x-8">
+        <div className="hidden xl:flex items-center space-x-7">
 
           <a href="#" className="text-black font-semibold text-sm flex items-center text-center hover:text-orange-500 duration-100 h-9">Home</a>
 
