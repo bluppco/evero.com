@@ -7,26 +7,30 @@ import SubHeading from "../atoms/headings/subheading/SubHeading.astro";
 ---
 
 <Container>
-  <div class="flex-1 py-10 px-4 flex items-center justify-center">
-    <div class="rounded-lg py-10 px-5">
-      <MainHeading> Where innovative Technology meets human care </MainHeading>
+  <div class="flex flex-col sm:flex-row md:h-[600px]">
+    <div class="flex-1 py-10 px-4 flex items-center justify-center">
+      <div class="max-sm:text-center rounded-lg py-10 px-5">
+        <MainHeading>
+          Where innovative Technology meets human care
+        </MainHeading>
 
-      <ParaSmall>
-        With a proprietary, easy-to-use software platform that connects the
-        entire care continuum and evolves as your needs do, eVero empowers
-        outcomes for both caregivers and individuals with I/DD.
-      </ParaSmall>
+        <ParaSmall>
+          With a proprietary, easy-to-use software platform that connects the
+          entire care continuum and evolves as your needs do, eVero empowers
+          outcomes for both caregivers and individuals with I/DD.
+        </ParaSmall>
 
-      <SubHeading> Go above and beyond care. </SubHeading>
+        <SubHeading> Go above and beyond care. </SubHeading>
 
-      <Button> Learn more </Button>
+        <Button> Learn more </Button>
+      </div>
     </div>
-  </div>
 
-  <div class="flex-1 overflow-hidden">
-    <img
-      class="md:rounded-full md:rounded-r-lg md:w-[900px] md:h-[580px] sm:w-[600px] sm:h-[480px] absolute -z-10"
-      src="images/hero-img.webp"
-    />
+    <div class="flex-1 overflow-hidden">
+      <img
+        class="max-sm:hidden md:rounded-full md:rounded-r-lg md:w-[900px] md:h-[580px] sm:w-[600px] sm:h-[480px] absolute -z-10"
+        src="images/hero-img.webp"
+      />
+    </div>
   </div>
 </Container>
