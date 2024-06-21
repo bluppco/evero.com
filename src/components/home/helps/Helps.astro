@@ -1,0 +1,187 @@
+---
+
+// CONTAINER IMPORT
+import Container from "@/components/common/container/Container.astro"
+
+// ATOMS IMPORT
+import Card from "@/components/atoms/home/help/card/index.astro"
+import CardContent from "@/components/atoms/home/help/card/content/index.astro"
+import CardHeading from "@/components/atoms/home/help/card/content/heading/index.astro"
+import ImageHolder from "@/components/atoms/home/help/card/imageholder/index.astro"
+import CardImage from "@/components/atoms/home/help/card/image/index.astro"
+import H2 from "@/components/atoms/headings/h2/H2.astro"
+import ParaMedium from "@/components/atoms/paragraph/medium/paraMedium.astro"
+import SubHeading from "@/components/atoms/headings/subheading/SubHeading.astro"
+
+---
+
+<Container>
+  <div class="my-11">
+
+    <div class="text-center flex flex-col items-center justify-center">
+
+      <H2>Who eVero Helps</H2>
+
+      <div class="max-w-[700px] mb-10">
+
+        <SubHeading>
+            We support the unique needs of the Health and Human Services
+            community.
+        </SubHeading>
+
+      </div>
+
+    </div>
+
+    <!-- Cards -->
+    <div class="flex flex-col gap-7">
+
+      <!-- First three cards -->
+      <div class="flex flex-col md:flex-row gap-7 items-center justify-center">
+        
+        <Card>
+
+          <ImageHolder>
+
+            <CardImage
+                alternativeText="agencies" 
+                source="images/Agencies.webp" 
+            />
+
+          </ImageHolder>
+
+          <CardContent>
+
+            <CardHeading>
+                PROVIDER AGENCIES
+            </CardHeading>
+
+            <ParaMedium>
+                Streamlined process flows that boost transparency, compliance, and
+                productivity.
+            </ParaMedium>
+
+          </CardContent>
+
+        </Card>
+
+        <Card>
+
+          <ImageHolder>
+
+            <CardImage 
+                alternativeText="families"
+                source="images/Families.webp" 
+            />
+
+          </ImageHolder>
+
+          <CardContent>
+
+            <CardHeading >
+                INDIVIDUALS & FAMILY
+            </CardHeading>
+
+            <ParaMedium>
+                Intuituve tools empower individuals to proactively manage their
+                Self-Directed care.
+            </ParaMedium>
+
+          </CardContent>
+
+        </Card>
+
+        <Card>
+
+          <ImageHolder>
+
+            <CardImage
+                alternativeText="fiscal"
+                source="images/Fiscal-Intermediaries.webp"
+            />
+
+          </ImageHolder>
+
+          <CardContent>
+
+            <CardHeading >
+                FISCAL INTERMEDIARIES
+            </CardHeading>
+
+            <ParaMedium>
+                Automation and integrations help simplify budgeting, documentation
+                and billing.
+            </ParaMedium>
+
+          </CardContent>
+
+        </Card>
+
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-7 items-center justify-center">
+
+        <Card>
+
+          <ImageHolder>
+
+            <CardImage
+                alternativeText="brokers" 
+                source="images/Brokers.webp"
+            />
+
+          </ImageHolder>
+
+          <CardContent>
+            <CardHeading >
+              SUPPORT BROKERS
+            </CardHeading>
+
+            <ParaMedium>
+              Unified caseload management with real-time insight into budget
+              usage and trends.
+            </ParaMedium>
+
+          </CardContent>
+
+        </Card>
+
+        <Card>
+
+          <ImageHolder>
+
+            <CardImage 
+                alternativeText="selfhired"
+                source="images/Self-Hired.webp"
+            />
+
+          </ImageHolder>
+
+          <CardContent>
+
+            <CardHeading >
+              SELF-HIRED STAFF
+            </CardHeading>
+
+            <ParaMedium>
+              Easy and accurate EVV and service data collection right at the
+              point of care.
+            </ParaMedium>
+
+          </CardContent>
+
+        </Card>
+
+      </div>
+      
+    </div>
+
+    <div class="flex items-center justify-center mt-6">
+      <h2 class="max-w-[1100px] text-xl text-center text-gray-500">
+        <spam class="text-orange-400">The eVero platform</spam>
+        creates a digital ecosystem that empowers the entire care continuum to work
+        together to ensure the best care possible
+      </h2>
+    </div>
+  </div>
+</Container>

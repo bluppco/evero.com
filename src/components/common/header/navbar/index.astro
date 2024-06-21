@@ -1,0 +1,392 @@
+---
+// SOCIAL ICONS
+import { FaPlus, FaUser } from "react-icons/fa"
+
+// IMPORT ATOMS
+import Button from "@/components/atoms/button/index.astro"
+import List from "@/components/atoms/header/navbar/list/index.astro"
+import Listitem from "@/components/atoms/header/navbar/list-item/index.astro"
+import Picture from "@/components/atoms/picture/jsx/index.jsx"
+
+---
+
+<nav class="bg-white shadow-md p-2 z-10">
+    <div
+        class="px-3 py-2 flex justify-between items-center md:gap-5 xl:gap-3 2xl:gap-8"
+    >
+        <div class="flex items-center gap-2 cursor-pointer">
+            <img src="./logo/Layer-21.svg" alt="eVero" class="h-12 mr-4" />
+        </div>
+
+        <div class="">
+            <a
+                href="tel:+18444638376"
+                class="text-black flex gap-2 items-center font-bold text-lg hover:text-orange-500 duration-150"
+            >
+                <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 36 36"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        fill-Rule="evenodd"
+                        clip-Rule="evenodd"
+                        d="M18 36C27.9411 36 36 27.9411 36 18C36 8.05887 27.9411 0 18 0C8.05887 0 0 8.05887 0 18C0 27.9411 8.05887 36 18 36ZM21.5382 19.5804L24.6007 20.8929C24.7424 20.9545 24.8581 21.0636 24.9281 21.2013C24.998 21.3391 25.0177 21.4969 24.9838 21.6476L24.3276 24.4914C24.2942 24.636 24.2127 24.7651 24.0965 24.8575C23.9803 24.9499 23.8362 25.0001 23.6877 25C16.6849 25 11 19.3261 11 12.3123C11 12.1639 11.0502 12.0198 11.1426 11.9037C11.235 11.7875 11.364 11.7061 11.5086 11.6727L14.3524 11.0164C14.5024 10.9823 14.6596 11.0017 14.7968 11.071C14.9341 11.1404 15.0429 11.2555 15.1044 11.3965L16.4169 14.4591C16.4729 14.5899 16.4848 14.7353 16.4508 14.8735C16.4167 15.0116 16.3386 15.1349 16.2282 15.2247L14.5712 16.581C15.5747 18.7095 17.2877 20.4225 19.4163 21.4261L20.7726 19.769C20.8625 19.6589 20.9858 19.5809 21.1239 19.5469C21.262 19.5129 21.4074 19.5246 21.5382 19.5804Z"
+                        fill="#FD9800">
+                    </path>
+                </svg>
+                +1 844 GOEVERO
+            </a>
+        </div>
+
+        <div class="hidden xl:flex items-center 2xl:gap-7 xl:gap-3">
+            <a
+                href="#"
+                class="text-black font-semibold text-sm flex items-center text-center hover:text-orange-500 duration-100 h-9"
+                >Home</a
+            >
+
+            <div class="relative group">
+                <a
+                    href="#"
+                    class="text-black font-semibold text-sm flex items-center gap-1 text-center hover:text-orange-500 duration-100 h-9"
+                    >Company <span class="font-light text-xs text-orange-500"
+                        ><FaPlus /></span
+                    ></a
+                >
+                <List>
+
+                    <Listitem>
+                        <a href="#">
+                            About Us
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Leadership Team
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Careers
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Outreach
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Client Satisfaction and Testimonials
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Case Studies
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Videos
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            News
+                        </a>
+                    </Listitem>
+
+                </List>
+            </div>
+
+            <div class="relative group">
+                <a
+                    href="#"
+                    class="text-black font-semibold text-[13px] flex items-center gap-1 hover:text-orange-500 duration-100 h-9"
+                    >Our Platform <span
+                        class="font-light text-xs text-orange-500"
+                        ><FaPlus /></span
+                    ></a
+                >
+                <List>
+
+                    <Listitem>
+                        <a href="#">
+                            About our Platform
+                        </a>
+                    </Listitem>
+
+
+                    <Listitem>
+                        <a href="#">
+                            E-Health Records (EHR)
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Self-Direction Services (SDS)
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Electronic Visit Verification (EVV)
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Billing & Revenue Cycle Management
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Personal Care Services (CDPAP)
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Crisis Response & Support
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Visibility & Reporting
+                        </a>
+                    </Listitem>
+
+                </List>
+            </div>
+
+            <div class="relative group">
+                <a
+                    href="#"
+                    class="text-black font-semibold text-[13px] flex items-center hover:text-orange-500 duration-100 h-9"
+                    >Who we Help <span
+                        class="font-light text-xs text-orange-500"
+                    >
+                        <FaPlus /></span
+                    ></a
+                >
+                <List>
+
+                    <Listitem>
+                        <a href="#">
+                            Traditional Health & Human Services Agencies
+                        </a>
+                    </Listitem>
+
+
+                    <Listitem>
+                        <a href="#">
+                            Fiscal Intermediaries
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Support Brokers
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Direct Support Professionals
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Government Agencies
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Self-Directing Individuals & Families
+                        </a>
+                    </Listitem>
+
+                </List>
+            </div>
+
+            <div class="relative group">
+                <a
+                    href="#"
+                    class="text-black font-semibold text-[13px] flex items-center gap-1 hover:text-orange-500 duration-100 h-9"
+                    >Apps <span class="font-light text-xs text-orange-500">
+                        <FaPlus /></span
+                    ></a
+                >
+                <List>
+
+                    <Listitem>
+                        <a href="#">
+                            eVeroMobile
+                        </a>
+                    </Listitem>
+
+
+                    <Listitem>
+                        <a href="#">
+                            eVeroPortal
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            eVeroConnect
+                        </a>
+                    </Listitem>
+
+                </List>
+            </div>
+
+            <div class="relative group">
+                <a
+                    href="#"
+                    class="text-black font-semibold text-[13px] flex items-center gap-1 hover:text-orange-500 duration-100 h-9"
+                    >Our Expertise <span
+                        class="font-light text-xs text-orange-500"
+                    >
+                        <FaPlus /></span
+                    ></a
+                >
+                <List>
+
+                    <Listitem>
+                        <a href="#">
+                            Client Services
+                        </a>
+                    </Listitem>
+
+
+                    <Listitem>
+                        <a href="#">
+                            Software Development
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Interoperability
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Data Security & Compliance
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Continuing Education & Training
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            Data Science & Analytics
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            eVeroBlog
+                        </a>
+                    </Listitem>
+
+                </List>
+            </div>
+
+            <div class="relative group">
+                <a
+                    href="#"
+                    class="text-black font-semibold text-[13px] flex items-center gap-1 hover:text-orange-500 duration-100 h-9"
+                    >Support <span class="font-light text-xs text-orange-500">
+                        <FaPlus /></span
+                    ></a
+                >
+                <List>
+
+                    <Listitem>
+                        <a href="#">
+                            Support Services
+                        </a>
+                    </Listitem>
+
+
+                    <Listitem>
+                        <a href="#">
+                            eVeroEd
+                        </a>
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#" class="flex gap-1">
+                            <FaUser />
+                            eVero Ed Login
+                        </a
+                    >
+                    </Listitem>
+
+                    <Listitem>
+                        <a href="#">
+                            MyeVeroPortal Login
+                        </a>
+                    </Listitem>
+
+                </List>
+                        
+            </div>
+
+            <Button>
+                Contact Us 
+            </Button>
+        </div>
+        <div class="hidden md:flex items-center space-x-3">
+            <a href="#" aria-label="">
+                <Picture 
+                    alternative_text="li" 
+                    source="/icons/linkedin.svg" 
+                />
+            </a>
+
+            <a href="#" aria-label="">
+                <Picture 
+                    alternative_text="li" 
+                    source="/icons/instagram.svg" 
+                />
+            </a>
+
+            <a href="#" aria-label="">
+                <Picture 
+                    alternative_text="li" 
+                    source="/icons/facebook.svg" 
+                />
+            </a>
+
+            <a href="#" aria-label="">
+                <Picture 
+                    alternative_text="li" 
+                    source="/icons/Xtwitter.svg" 
+                />
+            </a>
+        </div>
+    </div>
+</nav>
