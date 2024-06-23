@@ -1,0 +1,40 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO ATOMS
+import Button from "@/atoms/button/index.astro"
+import HeadingOne from "@/atoms/headings/one/index.astro"
+import HeadingThree from "@/atoms/headings/three/index.astro"
+import ParagraphSmall from "@/atoms/paragraph/small/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+	title: "Where innovative Technology meets human care",
+	description: "With a proprietary, easy-to-use software platform that connects the entire care continuum and evolves as your needs do, eVero empowers outcomes for both caregivers and individuals with I/DD.",
+	sub_title: "Go above and beyond care.",
+	button_text: "Learn more"
+
+}
+
+---
+
+<div class="grid md:grid-cols-2 gap-10 overflow-hidden">
+	<div class="flex-1 py-10 px-4 flex items-center justify-center pl-36">
+		<div class="space-y-6 py-10 px-5">
+			<HeadingOne>{ data.title }</MainHeading>
+			<ParagraphSmall>{ data.description }</ParagraphSmall>
+			<HeadingThree>{ data.sub_title }</HeadingThree>
+			<Button>{ data.button_text }</Button>
+		</div>
+	</div>
+	<div class="w-full aspect-[7/6] overflow-hidden max-sm:hidden md:rounded-full md:rounded-r-lg">
+		<img
+			alt=""
+			class="w-full h-full object-cover"
+			src="images/hero-img.webp"
+		/>
+	</div>
+</div>
