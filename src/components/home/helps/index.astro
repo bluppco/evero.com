@@ -1,0 +1,72 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import Card from "@/components/home/helps/card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingThree from "@/atoms/headings/three/index.astro"
+import HeadingTwo from "@/atoms/headings/two/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+	sub_title: "We support the unique needs of the Health and Human Services community.",
+	title: "Who eVero Helps",
+
+}
+
+---
+
+<Container>
+	<div class="my-10">
+		<div class="flex flex-col gap-6 items-center justify-center">
+			<HeadingTwo>{ data.title }</HeadingTwo>
+			<HeadingThree>{ data.sub_title }</HeadingThree>
+		</div>
+		<!-- Cards -->
+		<div class="flex flex-col gap-7 py-10">
+			<div class="flex flex-col md:flex-row md:flex-wrap gap-7 items-center justify-center">
+				<Card
+					alternativeText="agencies"
+					description="Streamlined process flows that boost transparency, compliance, and productivity."
+					source="images/Agencies.webp"
+					title="PROVIDER AGENCIES"
+				/>
+				<Card
+					alternativeText="families"
+					description="Intuituve tools empower individuals to proactively manage their Self-Directed care."
+					source="images/Families.webp"
+					title="INDIVIDUALS & FAMILY"
+				/>
+				<Card
+					alternativeText="fiscal"
+					description="Automation and integrations help simplify budgeting, documentation and billing."
+					source="images/Fiscal-Intermediaries.webp"
+					title="FISCAL INTERMEDIARIES"
+				/>
+				<Card
+					alternativeText="brokers"
+					description="Unified caseload management with real-time insight into budget usage and trends."
+					source="images/Brokers.webp"
+					title="SUPPORT BROKERS"
+				/>
+				<Card
+					alternativeText="selfhired"
+					description="Easy and accurate EVV and service data collection right at the point of care."
+					source="images/Self-Hired.webp"
+					title="SELF-HIRED STAFF"
+				/>
+			</div>
+		</div>
+		<div class="flex items-center justify-center mt-6 max-w-[1100px]">
+			<h2 class="text-xl text-center text-gray-500">
+				<span class="text-orange-400">The eVero platform</span>
+				creates a digital ecosystem that empowers the entire care continuum
+				to work together to ensure the best care possible
+			</h2>
+		</div>
+	</div>
+</Container>
