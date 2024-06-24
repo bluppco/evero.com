@@ -5,10 +5,12 @@ import Layout from "@/layouts/layout/index.astro"
 
 // IMPORT ASTRO COMPONENTS
 import About from "@/components/home/about/index.astro"
+import Community from "@/components/home/community/index.astro"
 import Header from "@/components/common/header/index.astro"
 import Helps from "@/components/home/helps/index.astro"
 import Hero from "@/components/home/hero/index.astro"
-import Navbar from "@/components/common/header/navbar/index.astro"
+import Learn from "@/components/home/learnabout/index.astro"
+import WhereEverohelps from "@/components/home/whereeverohelps/index.astro"
 
 ---
 
@@ -17,9 +19,11 @@ import Navbar from "@/components/common/header/navbar/index.astro"
 	image=""
 	title="eVero: Where Innovative technology meets human care"
 >
-	<Navbar />
-	<!-- <Header /> -->
+	<Header />
 	<Hero />
 	<About />
 	<Helps />
+	<Learn />
+	<!-- <WhereEverohelps/> -->
+	<Community/>
 </Layout>

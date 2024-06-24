@@ -1,0 +1,36 @@
+---
+
+// IMPORT ASTRO COMPONENTS
+import Card from "@/components/home/community/card/index.astro"
+
+---
+
+<div class="flex items-center justify-center my-12 md:mr-[5rem] overflow-hidden">
+    <div class="hidden md:flex h-[660px] overflow-hidden flex-1">
+        <img
+            alt=""
+            class=" w-full h-full object-cover rounded-r-[250px]"
+            src="images/communityimage.webp"
+        />
+    </div>
+
+
+    <div class="flex flex-1 items-center px-5 md:px-0 justify-center md:justify-end">
+        <div class="flex flex-col gap-12 max-w-[520px] mr-8">
+            <Card
+                buttontext="eVero Outreach"
+                description="eVero Outreach holds a variety of interactive seminars and trainings and participates in community events all designed to enhance the lives of individuals in the human services community that we serve."
+                subtitle="Giving back to the community is a part of our company’s DNA."
+                title="Community Outreach"
+            />
+
+            <Card
+                buttontext="eVero Ed"
+                description="We are committed to the continued success of all of our users. eVero Ed is the one-stop shop for eVero training and education, offering 24/7 online access to easy-to-understand written and video resources, plus live webinar schedules, software release breakdowns, and so much more."
+                subtitle="Training doesn’t end after implementation."
+                title="Continuing Education & Training"
+            />
+        </div>
+    </div>
+    
+</div>

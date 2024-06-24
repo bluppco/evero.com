@@ -1,0 +1,26 @@
+---
+
+import ParagraphMedium from "@/atoms/paragraph/medium/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    alternative_text,
+    description,
+    source,
+    title,
+
+} = Astro.props
+
+---
+<div class="flex flex-col my-5 md:mx-3 md:my-1">
+    <a >
+        <img
+            alt={ alternative_text }
+            class="object-cover cursor-pointer w-[full] h-[210px]"
+            src={ source }
+        />
+    </a>
+    <h2 class="my-2 text-black text-lg font-bold">{ title }</h2>
+    <ParagraphMedium>{ description }</ParagraphMedium>
+</div>

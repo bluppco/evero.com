@@ -1,0 +1,27 @@
+---
+// IMPORT ASTRO ATOMS
+import HeadingTwo from "@/atoms/headings/two/index.astro";
+
+// HARDCODED DATA
+const data = {
+    title: "Where eVero Helps",
+};
+---
+
+<section class="relative bg-where h-dvh bg-cover flex">
+    <div class="bg-white h-full w-[650px] relative left-[200px]">
+        <div class="p-3 mb-4">
+            <HeadingTwo>{data.title}</HeadingTwo>
+        </div>
+
+        
+        
+    </div>
+
+    <div
+        class="absolute right-[100px] top-[200px] max-w-[400px] flex items-center justify-center"
+    >
+        <img src="/images/whereeverohelpsimages/Artboard-6-4.webp" class="" />
+    </div>
+</section>
+

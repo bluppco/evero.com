@@ -1,0 +1,52 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import Card from "@/components/home/learnabout/card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingTwo from "@/atoms/headings/two/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    title: "Learn About eVero",
+
+}
+
+---
+
+<Container>
+    <div class="my-7 py-8 px-6 bg-gray-100 rounded-[2rem]">
+        <div>
+            <div class="flex items-center justify-center mb-9">
+                <HeadingTwo>{ data.title }</HeadingTwo>
+            </div>
+
+            <div class="flex flex-col sm:flex-row flex-1">
+                <Card
+                    alternative_text="ourPlatform"
+					description="A unified enterprise platform that optimizes workflows, increasing transparency and productivity."
+					source="images/learnimages/ourplatform.gif"
+					title="Our Platform"
+                />
+
+                <Card
+                    alternative_text="ourMobileApp"
+					description="Native iOS and Android apps that extend the power of our platform to your smartphone and tablet."
+					source="images/learnimages/ourmobileapp.gif"
+					title="Our Mobile Apps"
+                />
+
+                <Card
+                    alternative_text="ourbillingmodule"
+					description="Submit claims faster, realize revenue sooner and manage all aspects of your billing process in one place."
+					source="images/learnimages/ourbillingmodule.gif"
+					title="Our Billing Module"
+                />
+            </div>
+        </div>
+    </div>
+</Container>

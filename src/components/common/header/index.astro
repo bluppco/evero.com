@@ -7,48 +7,142 @@ import { getCollection } from "astro:content"
 let header_data = await getCollection("header")
 header_data = header_data.sort( ( a, b ) => a.data.order - b.data.order )
 
+// IMPORT ICON
+import { FaMinus, FaPlus } from "react-icons/fa"
+
+// IMPORT ATOMS
+import Button from "@/atoms/button/index.astro"
+import Picture from "@/atoms/picture/index.astro"
+
+const buttontext = "Contact Us"
 ---
 
-<header class="bg-zinc-200">
-    <ul class="flex md:gap-6 mac:gap-8 text-xl">
-        {
+<header class="bg-white shadow-md p-2 z-10">
+    <div class="px-3 py-2 flex justify-between items-center md:gap-5 xl:gap-3 2xl:gap-8">
 
-            header_data.map( ( item ) => {
+        <div class="flex items-center gap-2 cursor-pointer">
+            <img
+                alt="eVero"
+                class="h-12 mr-4"
+                src="./logo/Layer-21.svg"
+            />
+        </div>
+        <div>
+            <a href="tel:+18444638376" class="text-black flex gap-2 items-center font-bold text-lg hover:text-orange-500 duration-150">
+                <svg
+                    width="30"
+                    height="30"
+                    viewBox="0 0 36 36"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        fill-Rule="evenodd"
+                        clip-Rule="evenodd"
+                        d="M18 36C27.9411 36 36 27.9411 36 18C36 8.05887 27.9411 0 18 0C8.05887 0 0 8.05887 0 18C0 27.9411 8.05887 36 18 36ZM21.5382 19.5804L24.6007 20.8929C24.7424 20.9545 24.8581 21.0636 24.9281 21.2013C24.998 21.3391 25.0177 21.4969 24.9838 21.6476L24.3276 24.4914C24.2942 24.636 24.2127 24.7651 24.0965 24.8575C23.9803 24.9499 23.8362 25.0001 23.6877 25C16.6849 25 11 19.3261 11 12.3123C11 12.1639 11.0502 12.0198 11.1426 11.9037C11.235 11.7875 11.364 11.7061 11.5086 11.6727L14.3524 11.0164C14.5024 10.9823 14.6596 11.0017 14.7968 11.071C14.9341 11.1404 15.0429 11.2555 15.1044 11.3965L16.4169 14.4591C16.4729 14.5899 16.4848 14.7353 16.4508 14.8735C16.4167 15.0116 16.3386 15.1349 16.2282 15.2247L14.5712 16.581C15.5747 18.7095 17.2877 20.4225 19.4163 21.4261L20.7726 19.769C20.8625 19.6589 20.9858 19.5809 21.1239 19.5469C21.262 19.5129 21.4074 19.5246 21.5382 19.5804Z"
+                        fill="#FD9800">
+                    </path>
+                </svg>
+                +1 844 GOEVERO
+            </a>
+        </div>
 
-                return (
-                    <li class="relative group">
-                        <a href={ "/" + item.data.link } aria-label={ "explore " + item.data.title }>{ item.data.title }</a>
-                        {
+        <ul class="hidden xl:flex items-center md:gap-6 mac:gap-8 text-sm font-medium h-[30px]">
+            {
 
-                            item.data.has_dropdown &&
-                            <div class="hidden group-hover:block group-hover:flex-col absolute p-4 bg-white left-0 z-20 top-7 w-48 gap-2">
-                                <div class="flex flex-col bg-zinc-200 p-5">
-                                    {
+                header_data.map( ( item ) => {
 
-                                        item.data.items.map( ( sub_item, sub_item_index ) => {
+                    return (
+                        <li class="relative group flex items-center h-[30px] ">
+                            <a 
+                                href={ "/" + item.data.link } 
+                                aria-label={ "explore " + item.data.title } 
+                                class="flex items-center gap-1 hover:text-orange-500">
 
-                                            return(
+                                    { item.data.title } 
 
-                                                <div class="py-2 bg-gray-200">
-                                                    <a href={ "/" + sub_item.link } aria-label={ "explore" + sub_item.title }>
-                                                        <span class="text-sm">{ sub_item.title }</span>
-                                                    </a>
-                                                </div>
+                                    { 
 
-                                            )
+                                        item.data.has_dropdown && 
 
-                                        })
+                                        <span class="text-[10px] mt-[3px] text-orange-400">
+                                            <span class="group-hover:hidden"><FaPlus/></span>
+                                            <span class="hidden group-hover:inline"><FaMinus/></span>
+                                        </span> 
 
                                     }
+
+                            </a>
+                            {
+
+                                item.data.has_dropdown &&
+                                <div class="hidden group-hover:block group-hover:flex-col group-hover:transition-all duration-150 absolute shadow-md bg-white left-0 z-20 top-7 w-48 gap-2">
+                                    <div class="flex flex-col bg-white rounded-3xl">
+                                        {
+
+                                            item.data.items.map( ( sub_item, sub_item_index ) => {
+
+                                                return(
+
+                                                    <div class="px-5 py-3 bg-white hover:bg-orange-400 hover:text-white cursor-pointer">
+                                                        <a href={ "/" + sub_item.link } aria-label={ "explore" + sub_item.title }>
+                                                            <span class="text-sm font-normal">{ sub_item.title }</span>
+                                                        </a>
+                                                    </div>
+
+                                                )
+
+                                            })
+
+                                        }
+                                    </div>
                                 </div>
-                            </div>
 
-                        }
-                    </li>
-                )
+                            }
+                        </li>
+                    )
 
-            })
+                })
 
-        }
-    </ul>
+            }
+        </ul>
+
+        <div class="max-xl:hidden">
+            <Button>
+                { buttontext }
+            </Button>
+        </div>
+        
+
+        <div class="hidden md:flex items-center space-x-3">
+            <a href="#" aria-label="">
+                <Picture
+                    alternative_text="li"
+                    source="/icons/linkedin.svg"
+                />
+            </a>
+
+            <a href="#" aria-label="">
+                <Picture
+                    alternative_text="li"
+                    source="/icons/instagram.svg"
+                />
+            </a>
+
+            <a href="#" aria-label="">
+                <Picture
+                    alternative_text="li"
+                    source="/icons/facebook.svg"
+                />
+            </a>
+
+            <a href="#" aria-label="">
+                <Picture
+                    alternative_text="li"
+                    source="/icons/Xtwitter.svg"
+                />
+            </a>
+        </div>
+
+    </div>
 </header>
