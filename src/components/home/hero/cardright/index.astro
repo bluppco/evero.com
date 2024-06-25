@@ -1,0 +1,40 @@
+---
+
+// IMPORT ASTRO ATOMS
+import Button from "@/atoms/button/index.astro"
+import HeadingOne from "@/atoms/headings/one/index.astro"
+import HeadingThree from "@/atoms/headings/three/index.astro"
+import ParagraphSmall from "@/atoms/paragraph/small/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    alternative_text,
+    button_text,
+    description,
+    source,
+    sub_title,
+    title,
+
+} = Astro.props
+
+---
+
+<div class="flex">
+    <div class="hidden md:flex overflow-hidden -ml-[calc(50vw-50%)] max-w-[800px]">
+        <img
+            alt={ alternative_text }
+            class="w-full h-full object-cover rounded-r-full"
+            src={ source }
+        />
+    </div>
+
+    <div class="flex-1 py-10 px-4 flex items-center justify-center ">
+        <div class="space-y-6 py-10 px-7 ">
+            <HeadingOne>{ title }</MainHeading>
+            <ParagraphSmall>{ description }</ParagraphSmall>
+            <HeadingThree>{ sub_title }</HeadingThree>
+            <Button>{ button_text }</Button>
+        </div>
+    </div>
+</div>

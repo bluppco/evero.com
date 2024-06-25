@@ -1,0 +1,34 @@
+---
+
+// GET ASTRO PROPS
+const {
+
+    alternative_text,
+    date,
+    description,
+    link,
+    source,
+    title,
+
+} = Astro.props
+
+---
+<div class="flex flex-col my-5 md:my-1 p-6">
+    <div class="rounded-2xl border border-gray-300 flex justify-center w-full h-[250px]">
+        <img
+            alt={ alternative_text }
+            class="w-full object-contain rounded-2xl"
+            src={ source }
+        />
+    </div>
+
+    <h3 class="my-4 text-black text-xl font-medium">{ title }</h3>
+
+    <p class="text-gray-400 text-[14px] font-medium">{ date }</p>
+
+    <p class="text-[16px] my-4">{ description }</p>
+
+    <a href={ link }>
+        <button class="text-orange-500 hover:text-gray-500 text-[17px] font-semibold mt-3 border-b-2 border-orange-100 pb-1">Read More</button>
+    </a>
+</div>

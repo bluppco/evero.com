@@ -3,38 +3,72 @@
 // IMPORT ASTRO LAYOUTS
 import Container from "@/layouts/container/index.astro"
 
-// IMPORT ASTRO ATOMS
-import Button from "@/atoms/button/index.astro"
-import HeadingOne from "@/atoms/headings/one/index.astro"
-import HeadingThree from "@/atoms/headings/three/index.astro"
-import ParagraphSmall from "@/atoms/paragraph/small/index.astro"
-
-// HARDCODED DATA
-const data = {
-
-	title: "Where innovative Technology meets human care",
-	description: "With a proprietary, easy-to-use software platform that connects the entire care continuum and evolves as your needs do, eVero empowers outcomes for both caregivers and individuals with I/DD.",
-	sub_title: "Go above and beyond care.",
-	button_text: "Learn more"
-
-}
+// IMPORT ASTRO COMPONENTS
+import Cardleft from "@/components/home/hero/cardleft/index.astro"
+import Cardright from "@/components/home/hero/cardright/index.astro"
 
 ---
 
-<div class="grid md:grid-cols-2 gap-10 overflow-hidden">
-	<div class="flex-1 py-10 px-4 flex items-center justify-center pl-36">
-		<div class="space-y-6 py-10 px-5">
-			<HeadingOne>{ data.title }</MainHeading>
-			<ParagraphSmall>{ data.description }</ParagraphSmall>
-			<HeadingThree>{ data.sub_title }</HeadingThree>
-			<Button>{ data.button_text }</Button>
-		</div>
-	</div>
-	<div class="w-full aspect-[7/6] overflow-hidden max-sm:hidden md:rounded-full md:rounded-r-lg">
-		<img
-			alt=""
-			class="w-full h-full object-cover"
-			src="images/hero-img.webp"
-		/>
-	</div>
+<div class="single-item">
+    <Container>
+    
+        <Cardleft
+
+            alternative_text="hero1"
+            button_text="Learn more"
+            description="With a proprietary, easy-to-use software platform that connects the entire care continuum and evolves as your needs do, eVero empowers outcomes for both caregivers and individuals with I/DD."
+            source="images/hero-img.webp"
+            sub_title="Go above and beyond care."
+            title="Where innovative Technology meets human care"
+
+        />
+    
+    </Container>
+
+    <Container>
+
+        <Cardright
+
+            alternative_text="hero2"
+            button_text="Learn more"
+            description="Our platform optimizes workflows while increasing transparency, productivity, and compliance, enabling providers, caregivers, and those supported to work together towards the best care possible."
+            source="images/hero2-img.webp"
+            sub_title="Focus on the care you provide; not the technology around it."
+            title="Powering a connected care ecosystem. Empowering you."
+
+        />
+
+    </Container>
+
+    <Container>
+    
+        <Cardleft
+
+            alternative_text="hero3"
+            button_text="Self-Direction Services (SDS)"
+            description="From Health Records and Self-Direction Services to Billing and Compliance, eVero’s integrated enterprise platform unifies your data so you can manage all facets of your business in one place."
+            source="images/hero3-img.webp"
+            sub_title="Focus on the care you provide; not the technology around it."
+            title="One platform. A world of inclusion, insight & impact."
+
+        />
+    
+    </Container>
 </div>
+
+<script>
+    $('.single-item').slick({
+        infinite: true,
+        speed: 800,
+        autoplay: true,
+        fade: true,
+        cssEase: 'linear',
+        dots: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: false,
+        centerPading: '0',
+        prevArrow: false,
+        nextArrow: false
+    });
+</script>

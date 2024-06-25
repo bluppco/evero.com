@@ -5,7 +5,12 @@ export default {
 		extend: {
 			backgroundImage: {
 				'where' : "url('../images/whereeverohelpsimages/background.webp')",
-			}
+			},
+
+			flexGrow: {
+				'2': 2,
+				'3': 3, 
+			},
 		},
 	},
 	plugins: [],
