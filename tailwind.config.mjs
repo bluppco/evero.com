@@ -5,12 +5,17 @@ export default {
 		extend: {
 			backgroundImage: {
 				'where' : "url('../images/whereeverohelpsimages/background.webp')",
+				'subscribe' : "url('../images/subscribebg.webp')"
 			},
 
 			flexGrow: {
 				'2': 2,
 				'3': 3, 
 			},
+
+			width: {
+				'semifull': 'calc(100% - 15px)',
+			}
 		},
 	},
 	plugins: [],

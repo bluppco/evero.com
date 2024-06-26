@@ -13,31 +13,33 @@ const {
 
 ---
 
-<div class="bg-gray-100 rounded-3xl max-w-[400px] mb-8">
-    <div class="flex gap-3 items-center justify-between px-7 py-6 border-b-2 border-gray-300">
-        <img 
+<div class="flex items-center justify-center p-5">
+    <div class="bg-gray-100 rounded-3xl mb-8">
+        <div class="flex gap-3 items-center justify-between px-7 py-6 border-b-2 border-gray-300">
+            <img 
 
-            alt={ alternative_text }
-            class="size-[50px] rounded-full"
-            src={ source }
+                alt={ alternative_text }
+                class="size-[50px] rounded-full"
+                src={ source }
 
-        />
+            />
 
-        <div>
-            <h4 class="text-sm font-semibold">{ title }</h4>
-            <p class="text-xs">{ sub_title }</p>
+            <div>
+                <h4 class="text-sm font-semibold">{ title }</h4>
+                <p class="text-xs">{ sub_title }</p>
+            </div>
+
+            <div class="flex">
+                <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
+                <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
+                <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
+                <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
+                <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
+            </div>
         </div>
 
-        <div class="flex">
-            <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
-            <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
-            <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
-            <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
-            <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
+        <div class="px-7 pt-5 pb-8">
+            <p class="text-[15px] text-gray-600">{ description }</p>
         </div>
-    </div>
-
-    <div class="px-7 pt-5 pb-8">
-        <p class="text-[15px] text-gray-600">{ description }</p>
     </div>
 </div>

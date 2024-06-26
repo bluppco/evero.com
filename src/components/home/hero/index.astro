@@ -1,7 +1,7 @@
 ---
 
 // IMPORT ASTRO LAYOUTS
-import Container from "@/layouts/container/index.astro"
+
 
 // IMPORT ASTRO COMPONENTS
 import Cardleft from "@/components/home/hero/cardleft/index.astro"
@@ -9,8 +9,8 @@ import Cardright from "@/components/home/hero/cardright/index.astro"
 
 ---
 
-<div class="single-item">
-    <Container>
+<div class="single-item overflow-x-hidden">
+    <div class=" max-w-full mb-9 px-2 sm:px-4 sm:py-2 ">
     
         <Cardleft
 
@@ -23,9 +23,9 @@ import Cardright from "@/components/home/hero/cardright/index.astro"
 
         />
     
-    </Container>
+    </div>
 
-    <Container>
+    <div class=" max-w-full mx-auto mb-9 px-2 sm:px-4 sm:py-2 ">
 
         <Cardright
 
@@ -38,9 +38,9 @@ import Cardright from "@/components/home/hero/cardright/index.astro"
 
         />
 
-    </Container>
+    </div>
 
-    <Container>
+    <div class=" max-w-full mx-auto mb-9 px-2 sm:px-4 sm:py-2 ">
     
         <Cardleft
 
@@ -53,22 +53,21 @@ import Cardright from "@/components/home/hero/cardright/index.astro"
 
         />
     
-    </Container>
+    </div>
 </div>
 
 <script>
-    $('.single-item').slick({
-        infinite: true,
-        speed: 800,
-        autoplay: true,
-        fade: true,
-        cssEase: 'linear',
-        dots: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        centerMode: false,
-        centerPading: '0',
-        prevArrow: false,
-        nextArrow: false
+    $(document).ready(function(){
+        $('.single-item').slick({
+            prevArrow: false,
+            nextArrow: false,
+            autoplay: true,
+            autoplaySpeed: 7000,
+            fade:true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false,
+            infinite: true,        
+        });
     });
 </script>

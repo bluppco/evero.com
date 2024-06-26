@@ -21,7 +21,7 @@ const {
 ---
 
 <div class="flex">
-    <div class="hidden md:flex overflow-hidden -ml-[calc(50vw-50%)] max-w-[800px]">
+    <div class="hidden md:flex overflow-hidden -ml-[calc(50vw-50%)] xl:max-w-[800px] lg:max-w-[600px] md:max-w-[500px]">
         <img
             alt={ alternative_text }
             class="w-full h-full object-cover rounded-r-full"
@@ -29,7 +29,7 @@ const {
         />
     </div>
 
-    <div class="flex-1 py-10 px-4 flex items-center justify-center ">
+    <div class="flex-1 py-10 xl:pr-[7rem] pl-4 flex items-center justify-center ">
         <div class="space-y-6 py-10 px-7 ">
             <HeadingOne>{ title }</MainHeading>
             <ParagraphSmall>{ description }</ParagraphSmall>

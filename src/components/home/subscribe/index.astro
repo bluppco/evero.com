@@ -1,0 +1,54 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import Input from "@/components/home/subscribe/input/index.astro"
+
+// IMPORT ASTRO ATOMS
+import Button from "@/atoms/button/index.astro"
+import HeadingTwo from "@/atoms/headings/two/index.astro"
+import HeadingThree from "@/atoms/headings/three/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    button_text: "Submit now",
+    sub_title: "For the latest industry news & events - delivered right to you inbox.",
+    title: "Subscribe Now",
+
+}
+
+---
+
+<div class="bg-subscribe bg-cover rounded-t-[4rem]">
+    <Container>
+        <div class="my-7 flex justify-center ">
+            <div class="px-4 pt-6 text-center lg:w-[800px] md:w-[500px]">
+                <HeadingTwo>{ data.title }</HeadingTwo>
+
+                <h4 class="text-[16px] font-semibold mt-5">{ data.sub_title }</h4>
+
+                <div class="my-8">
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-10 my-8">
+                        <Input 
+
+                            input_name="yourname"  
+                            input_placeholder="Your Name"  
+                        
+                        />
+                        <Input 
+
+                            input_name="youremail"  
+                            input_placeholder="Your Email"  
+                        
+                        />
+                    </div>
+
+                    <Button>{ data.button_text }</Button>
+                </div>
+            </div>
+        </div>
+    </Container>
+</div>

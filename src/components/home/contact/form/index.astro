@@ -1,0 +1,68 @@
+---
+
+// IMPORT ASTRO COMPONENTS
+import Input from "@/components/home/contact/form/input/index.astro"
+
+// IMPORT ASTRO ATOMS
+import Button from "@/atoms/button/index.astro"
+import HeadingTwo from "@/atoms/headings/two/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    button_text,
+    description,
+    sub_title,
+    title,
+
+} = Astro.props
+
+---
+
+<div class="px-5 max-w-[470px]">
+    <div class="flex flex-col gap-4">
+        <HeadingTwo>{ title }</HeadingTwo>
+        
+        <h3 class="text-[22px] font-semibold text-gray-400 ">{ sub_title }</h3>
+        
+        <p class="text-[15px] font-medium mb-5">{ description }</p>
+    </div>
+
+    <form>
+        <Input
+        
+            input_name="yourname"
+            input_placeholder="Your Name*"
+
+        />
+
+        <Input
+        
+            input_name="youremail"
+            input_placeholder="Your email*"
+
+        />
+
+        <Input
+        
+            input_name="about"
+            input_placeholder="What are you inquiring abpout?*"
+
+        />
+
+        <textarea 
+            
+            rows="6" 
+            cols="50" 
+            class="resize-none w-full border-b border-gray-300 bg-transparent py-2 focus:outline-none text-xl text-gray-700 text-left mt-4"
+
+        >Your Message</textarea>
+
+        <div class="flex items-center justify-center my-5">
+            <button
+                class="w-full text-xl font-medium bg-orange-400 text-white px-6 py-2 rounded-lg ring-2 ring-orange-400 ring-offset-2 duration-100 hover:ring-0 hover:border-solid hover:border-2 hover:border-orange-400"
+            >{ button_text }</button>
+        </div>  
+        
+    </form>
+</div>
