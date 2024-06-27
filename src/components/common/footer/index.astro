@@ -1,0 +1,140 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO COLLECTION
+import { getCollection } from "astro:content"
+
+// IMPORT HEADER COLLECTION
+let footer_data = await getCollection("footer")
+footer_data = footer_data.sort( ( a, b ) => a.data.order - b.data.order )
+
+// IMPORT ASTRO ATOMS
+import Picture from "@/atoms/picture/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    copyright: "© 2024 eVero Corporation | All Rights Reserved",
+    description: "With a proprietary software platform that connects the entire care continuum, our easy-to-use ecosystem optimizes workflows while increasing transparency and productivity. Continually evolving our offerings to support better health outcomes, we’re a place where innovative technology meets human care.",
+    follow: "Follow us",
+    logo_source: "logo/Layer-21.svg",
+    quote: "Empowering outcomes for both caregivers and individuals with I/DD.",
+    title: "Where innovative technology meets human care.",
+    verification_badge_1_source: "images/HIPAA.webp",
+    verification_badge_2_source: "images/Employability.webp",
+
+}
+
+---
+
+<Container>
+    <div class="mt-10 py-5 border-t border-gray-300 flex flex-col gap-6 lg:gap-0 lg:flex-row lg:justify-between justify-center">
+        <div class="pt-4 pl-4 pr-4 flex-1 max-w-[540px] lg:pr-[6rem] lg:pl-0">
+            <div class="pb-6">
+                <img class="h-12" src={ data.logo_source } />
+            </div>
+
+            <div class="flex flex-col gap-5">
+                <h3 class="text-orange-400 text-[15px] font-semibold">{ data.title }</h3>
+
+                <p class="text-[13px] font-medium">{ data.description }</p>
+
+                <div class="p-3 border-2 border-orange-400 rounded-xl">
+                    <p class="text-[13px] text-center font-medium italic">{ data.quote }</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex-2">
+            
+                <ul class="flex flex-col gap-5 sm:gap-0 sm:flex-row flex-wrap">
+                    {
+
+                        footer_data.map( ( item ) => {
+
+                            return (
+                                <div class="flex-1 max-w-[400px] w-full px-4">
+                                    <h3 class="text-[15px] font-semibold mb-2">
+
+                                        { item.data.title } 
+
+                                    </h3>
+
+                                    <li>
+                                        {
+                                            item.data.items.map( ( sub_item ) => {
+
+                                            return(
+
+                                                <div class="hover:text-orange-500 hover:underline underline-offset-2 decoration-1 cursor-pointer mb-[6px]">
+                                                    <a href={ "/" + sub_item.link } aria-label={ "explore" + sub_item.title }>
+                                                        <span class="text-[13px] font-normal">{ sub_item.title }</span>
+                                                    </a>
+                                                </div>
+
+                                            )
+
+                                            })
+                                        }
+                                    </li>
+                                </div>
+                            )
+
+                        })
+
+                    }
+                </ul>
+
+        </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-7 border-b border-gray-300 mt-6 mb-5 pb-5">
+        <div class="flex gap-3 mt-6 max-md:justify-center">
+            <h3 class="text-lg font-medium">{ data.follow }</h3>
+
+            <a href="#" aria-label="">
+                <Picture
+                    alternative_text="li"
+                    source="/icons/linkedin.svg"
+                />
+            </a>
+
+            <a href="#" aria-label="">
+                <Picture
+                    alternative_text="li"
+                    source="/icons/instagram.svg"
+                />
+            </a>
+
+            <a href="#" aria-label="">
+                <Picture
+                    alternative_text="li"
+                    source="/icons/facebook.svg"
+                />
+            </a>
+
+            <a href="#" aria-label="">
+                <Picture
+                    alternative_text="li"
+                    source="/icons/Xtwitter.svg"
+                />
+            </a>
+        </div>
+
+        <div class="flex justify-center gap-5 px-4 max-w-[900px] w-full">
+            <a href="/">
+                <img class="max-h-[120px] max-sm:h-[70px]" src={ data.verification_badge_1_source }/>
+            </a>
+
+            <a href="/">
+                <img class="max-h-[120px] max-sm:h-[70px]" src={ data.verification_badge_2_source  }/>
+            </a>
+        </div>
+    </div>
+
+    <div class="flex justify-center">
+        <p class="text-sm text-gray-400">{ data.copyright }</p>
+    </div>
+</Container>

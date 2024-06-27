@@ -14,7 +14,14 @@ import { FaMinus, FaPlus } from "react-icons/fa"
 import Button from "@/atoms/button/index.astro"
 import Picture from "@/atoms/picture/index.astro"
 
-const buttontext = "Contact Us"
+// HARDCODED DATA
+const data = {
+
+    buttontext: "Contact Us",
+    phone_no: "+1 844 GOEVERO",
+
+}
+
 ---
 
 <header class="bg-white shadow-md p-2 z-10">
@@ -43,7 +50,7 @@ const buttontext = "Contact Us"
                         fill="#FD9800">
                     </path>
                 </svg>
-                +1 844 GOEVERO
+                { data.phone_no }
             </a>
         </div>
 
@@ -109,7 +116,7 @@ const buttontext = "Contact Us"
 
         <div class="max-xl:hidden">
             <Button>
-                { buttontext }
+                { data.buttontext }
             </Button>
         </div>
         
