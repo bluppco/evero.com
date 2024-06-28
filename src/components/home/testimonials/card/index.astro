@@ -1,5 +1,8 @@
 ---
 
+// IMPORT ASTRO COMPONENTS
+import Stars from "@/components/home/testimonials/card/stars/index.astro"
+
 // GET ASTRO PROPS
 const {
 
@@ -13,33 +16,22 @@ const {
 
 ---
 
-<div class="flex items-center justify-center p-5">
-    <div class="bg-gray-100 rounded-3xl mb-8">
-        <div class="flex gap-3 items-center justify-between px-7 py-6 border-b-2 border-gray-300">
+<div class="flex items-center justify-center p-4 mb-6">
+    <div class="bg-gray-100 rounded-3xl min-h-[360px]">
+        <div class="flex items-center justify-between px-8 py-6 border-b-2 border-gray-300">
             <img 
-
                 alt={ alternative_text }
-                class="size-[50px] rounded-full"
+                class="size-12 rounded-full"
                 src={ source }
-
             />
-
             <div>
-                <h4 class="text-sm font-semibold">{ title }</h4>
+                <h3 class="text-sm font-semibold">{ title }</h3>
                 <p class="text-xs">{ sub_title }</p>
             </div>
-
-            <div class="flex">
-                <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
-                <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
-                <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
-                <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
-                <img class="size-[16px]" src="icons/star-svgrepo-com.svg"/>
-            </div>
+            <Stars/>
         </div>
-
-        <div class="px-7 pt-5 pb-8">
-            <p class="text-[15px] text-gray-600">{ description }</p>
+        <div class="px-8 py-6">
+            <p class="text-[15px]">{ description }</p>
         </div>
     </div>
 </div>
