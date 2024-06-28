@@ -1,16 +1,13 @@
 ---
 
-// IMPORT ASTRO LAYOUTS
-
-
 // IMPORT ASTRO COMPONENTS
 import Cardleft from "@/components/home/hero/cardleft/index.astro"
 import Cardright from "@/components/home/hero/cardright/index.astro"
 
 ---
 
-<div class="single-item overflow-x-hidden">
-    <div class="mb-9 sm:py-2 ">   
+<div class="hero_slider">
+    <div class="mb-9 sm:py-2">   
         <Cardleft
             alternative_text="hero1"
             button_text="Learn more"
@@ -20,7 +17,7 @@ import Cardright from "@/components/home/hero/cardright/index.astro"
             title="Where innovative Technology meets human care"
         />
     </div>
-    <div class=" mb-9 sm:py-2">
+    <div class="mb-9 sm:py-2">
         <Cardright
             alternative_text="hero2"
             button_text="Learn more"
@@ -30,21 +27,41 @@ import Cardright from "@/components/home/hero/cardright/index.astro"
             title="Powering a connected care ecosystem. Empowering you."
         />
     </div>
-    <div class=" mb-9 sm:py-2">    
+    <div class="mb-9 sm:py-2">    
         <Cardleft
             alternative_text="hero3"
             button_text="Self-Direction Services (SDS)"
             description="From Health Records and Self-Direction Services to Billing and Compliance, eVero’s integrated enterprise platform unifies your data so you can manage all facets of your business in one place."
             source="images/hero3-img.webp"
-            sub_title="Focus on the care you provide; not the technology around it."
+            sub_title="Focus on the care you provide not the technology around it."
             title="One platform. A world of inclusion, insight & impact."
+        />   
+    </div>
+    <div class="mb-9 sm:py-2">    
+        <Cardright
+            alternative_text="hero4"
+            button_text="Learn More"
+            description="We support you every step of the way! We continually advance our technology to address changing requirements.  This ensures that our platform is always individualized, intuitive, and impactful."
+            source="images/hero4.webp"
+            sub_title="Technology built for today with tomorrow in mind."
+            title="As I/DD industry needs evolve, so do we."
+        />   
+    </div>
+    <div class="mb-9 sm:py-2">    
+        <Cardleft
+            alternative_text="hero5"
+            button_text="Learn More"
+            description="Bring clarity to your data! Our real-time reporting – from individualized metrics to big-picture analytics – drives timely, informed decision-making, empowering you to deliver the most personalized care possible."
+            source="images/hero5.webp"
+            sub_title="Innovation begins with information."
+            title="Data insights that inform and transform."
         />   
     </div>
 </div>
 
 <script>
     $(document).ready(function(){
-        $('.single-item').slick({
+        $('.hero_slider').slick({
             prevArrow: false,
             nextArrow: false,
             autoplay: true,
