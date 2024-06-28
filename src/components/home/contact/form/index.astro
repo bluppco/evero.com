@@ -19,50 +19,33 @@ const {
 
 ---
 
-<div class="px-5 max-w-[470px]">
+<div class="flex flex-col gap-8 px-6 max-w-[470px]">
     <div class="flex flex-col gap-4">
-        <HeadingTwo>{ title }</HeadingTwo>
-        
-        <h3 class="text-[22px] font-semibold text-gray-400 ">{ sub_title }</h3>
-        
-        <p class="text-[15px] font-medium mb-5">{ description }</p>
+        <HeadingTwo>{ title }</HeadingTwo>       
+        <h3 class="text-xl font-semibold text-gray-400 ">{ sub_title }</h3>       
+        <p class="text-[15px] font-medium">{ description }</p>
     </div>
-
-    <form>
-        <Input
-        
+    <form class="flex flex-col gap-4">
+        <Input       
             input_name="yourname"
             input_placeholder="Your Name*"
-
         />
-
-        <Input
-        
+        <Input        
             input_name="youremail"
             input_placeholder="Your email*"
-
         />
-
-        <Input
-        
+        <Input       
             input_name="about"
             input_placeholder="What are you inquiring about ?*"
-
         />
-
         <textarea 
             placeholder="Your Message"
             rows="6" 
             cols="50" 
-            class="resize-none w-full border-b border-gray-300 bg-transparent py-2 focus:outline-none text-lg md:text-xl text-left mt-4 placeholder:text-gray-700"
-
-        ></textarea>
-
-        <div class="flex items-center justify-center my-5">
-            <FullSizeButton>
-                { button_text }
-            </FullSizeButton>
-        </div>  
-        
+            class="resize-none w-full border-b border-gray-300 bg-transparent py-2 focus:outline-none text-lg md:text-xl text-left placeholder:text-gray-700"
+        ></textarea>        
     </form>
+    <div class="flex items-center justify-center">
+        <FullSizeButton>{ button_text }</FullSizeButton>
+    </div> 
 </div>

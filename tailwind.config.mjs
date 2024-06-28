@@ -12,10 +12,6 @@ export default {
 				'2': 2,
 				'3': 3, 
 			},
-
-			width: {
-				'semifull': 'calc(100% - 15px)',
-			}
 		},
 	},
 	plugins: [],
