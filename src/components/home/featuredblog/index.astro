@@ -1,8 +1,8 @@
 ---
 
 // IMPORT ASTRO ATOMS
-import Button from "@/atoms/button/index.astro"
 import HeadingTwo from "@/atoms/headings/two/index.astro"
+import PrimaryButton from "@/atoms/button/primary-button/index.astro"
 
 // IMPORT ASTRO COMPONENTS
 import FeaturedCard from "@/components/home/featuredblog/card/index.astro"
@@ -56,9 +56,9 @@ const data = {
         />
     </div>
     <div class="flex items-center justify-center">
-        <Button>
+        <PrimaryButton>
             { data.buttontext }
-        </Button>
+        </PrimaryButton>
     </div>
 </section>
 

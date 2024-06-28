@@ -1,9 +1,9 @@
 ---
 
 // IMPORT ASTRO ATOMS
-import Button from "@/atoms/button/index.astro"
 import HeadingTwo from "@/atoms/headings/two/index.astro"
 import ParagraphSmall from "@/atoms/paragraph/small/index.astro"
+import PrimaryButton from "@/atoms/button/primary-button/index.astro"
 
 // GET ASTRO PROPS
 const {
@@ -24,6 +24,6 @@ const {
         <ParagraphSmall>{ description }</ParagraphSmall>
     </div>
     <div class="">
-        <Button>{ buttontext }</Button>
+        <PrimaryButton>{ buttontext }</PrimaryButton>
     </div>   
 </div>

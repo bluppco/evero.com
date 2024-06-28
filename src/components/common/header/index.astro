@@ -11,8 +11,8 @@ header_data = header_data.sort( ( a, b ) => a.data.order - b.data.order )
 import { FaMinus, FaPlus } from "react-icons/fa"
 
 // IMPORT ATOMS
-import Button from "@/atoms/button/index.astro"
 import Picture from "@/atoms/picture/index.astro"
+import PrimaryButton from "@/atoms/button/primary-button/index.astro"
 
 // HARDCODED DATA
 const data = {
@@ -115,9 +115,9 @@ const data = {
         </ul>
 
         <div class="max-xl:hidden">
-            <Button>
+            <PrimaryButton>
                 { data.buttontext }
-            </Button>
+            </PrimaryButton>
         </div>
         
 

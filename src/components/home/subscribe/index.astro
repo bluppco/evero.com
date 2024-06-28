@@ -7,9 +7,9 @@ import Container from "@/layouts/container/index.astro"
 import Input from "@/components/home/subscribe/input/index.astro"
 
 // IMPORT ASTRO ATOMS
-import Button from "@/atoms/button/index.astro"
 import HeadingTwo from "@/atoms/headings/two/index.astro"
 import HeadingThree from "@/atoms/headings/three/index.astro"
+import PrimaryButton from "@/atoms/button/primary-button/index.astro"
 
 // HARDCODED DATA
 const data = {
@@ -46,7 +46,7 @@ const data = {
                         />
                     </div>
 
-                    <Button>{ data.button_text }</Button>
+                    <PrimaryButton>{ data.button_text }</PrimaryButton>
                 </div>
             </div>
         </div>
