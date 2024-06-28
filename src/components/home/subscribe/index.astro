@@ -8,7 +8,7 @@ import Input from "@/components/home/subscribe/input/index.astro"
 
 // IMPORT ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro"
-import HeadingThree from "@/atoms/headings/three/index.astro"
+import HeadingThreeCenter from "@/atoms/headings/three/three-text-center/index.astro"
 import PrimaryButton from "@/atoms/button/primary-button/index.astro"
 
 // HARDCODED DATA
@@ -22,31 +22,28 @@ const data = {
 
 ---
 
-<div class="bg-subscribe bg-cover rounded-t-[4rem]">
+<div class="bg-subscribe bg-cover rounded-t-[64px]">
     <Container>
-        <div class="my-7 flex justify-center ">
-            <div class="px-4 pt-6 text-center lg:w-[800px] md:w-[500px]">
-                <HeadingTwo>{ data.title }</HeadingTwo>
-
-                <h4 class="text-[16px] font-semibold mt-5">{ data.sub_title }</h4>
-
-                <div class="my-8">
-                    <div class="flex flex-col md:flex-row justify-center items-center gap-10 my-8">
+        <div class="flex justify-center my-10">
+            <div class=" flex flex-col gap-10">
+                <div class="flex flex-col items-center justify-center gap-4">
+                    <HeadingTwo>{ data.title }</HeadingTwo>
+                    <HeadingThreeCenter>{ data.sub_title }</HeadingThreeCenter>
+                </div>
+                <div class="flex flex-col gap-10">
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-10">
                         <Input 
-
                             input_name="yourname"  
-                            input_placeholder="Your Name"  
-                        
+                            input_placeholder="Your Name"                        
                         />
                         <Input 
-
                             input_name="youremail"  
-                            input_placeholder="Your Email"  
-                        
+                            input_placeholder="Your Email"                         
                         />
                     </div>
-
-                    <PrimaryButton>{ data.button_text }</PrimaryButton>
+                    <div class="flex justify-center">
+                        <PrimaryButton>{ data.button_text }</PrimaryButton>
+                    </div>
                 </div>
             </div>
         </div>
