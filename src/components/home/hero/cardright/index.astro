@@ -20,17 +20,16 @@ const {
 
 ---
 
-<div class="flex">
-    <div class="hidden md:flex overflow-hidden -ml-[calc(50vw-50%)] xl:max-w-[800px] lg:max-w-[600px] md:max-w-[500px]">
+<div class="grid md:grid-cols-2 gap-4">
+    <div class="hidden md:block">
         <img
             alt={ alternative_text }
             class="w-full h-full object-cover rounded-r-full"
             src={ source }
         />
     </div>
-
-    <div class="flex-1 py-10 xl:pr-[7rem] pl-4 flex items-center justify-center ">
-        <div class="space-y-6 py-10 px-7 max-md:text-center">
+    <div class="py-10 xl:pr-28 flex items-center justify-center">
+        <div class="space-y-6 py-10 px-12 md:px-7 flex flex-col items-center justify-center md:items-start">
             <HeadingOne>{ title }</MainHeading>
             <ParagraphSmall>{ description }</ParagraphSmall>
             <HeadingThree>{ sub_title }</HeadingThree>
