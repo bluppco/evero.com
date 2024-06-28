@@ -1,6 +1,8 @@
 ---
 
-import ParagraphMedium from "@/atoms/paragraph/medium/index.astro"
+// IMPORT ASTRO ATOMS
+import HeadingOrange from "@/atoms/headings/four/four-orange/index.astro"
+import ParagraphMediumCenter from "@/atoms/paragraph/medium/medium-center/index.astro"
 
 // GET ASTRO PROPS
 const {
@@ -13,7 +15,8 @@ const {
 } = Astro.props
 
 ---
-<div class="text-center flex flex-col items-center justify-center px-12 py-5 max-w-[380px]">
+
+<div class="flex flex-col items-center justify-center px-12 py-5 max-w-[380px]">
     <div class="rounded-full border-2 border-solid border-orange-400 p-6 mb-6">
         <img
             alt={ alternative_text }
@@ -21,6 +24,8 @@ const {
             src={ source }
         />
     </div>
-    <h2 class="mb-4 text-orange-400 text-2xl font-medium">{ title }</h2>
-    <ParagraphMedium>{ description }</ParagraphMedium>
+    <div class="flex flex-col gap-2">
+        <HeadingOrange>{ title }</HeadingOrange>
+        <ParagraphMediumCenter>{ description }</ParagraphMediumCenter>
+    </div>
 </div>
