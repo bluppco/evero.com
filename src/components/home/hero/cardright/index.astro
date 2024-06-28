@@ -4,7 +4,7 @@
 import Button from "@/atoms/button/index.astro"
 import HeadingOne from "@/atoms/headings/one/index.astro"
 import HeadingThree from "@/atoms/headings/three/index.astro"
-import ParagraphSmall from "@/atoms/paragraph/small/index.astro"
+import ParagraphSmallCenter from "@/atoms/paragraph/small/small-center/index.astro"
 
 // GET ASTRO PROPS
 const {
@@ -31,7 +31,7 @@ const {
     <div class="py-16 xl:pr-28 flex items-center justify-center">
         <div class="space-y-6 p-11 flex flex-col items-center justify-center md:items-start">
             <HeadingOne>{ title }</MainHeading>
-            <ParagraphSmall>{ description }</ParagraphSmall>
+            <ParagraphSmallCenter>{ description }</ParagraphSmallCenter>
             <HeadingThree>{ sub_title }</HeadingThree>
             <Button>{ button_text }</Button>
         </div>
