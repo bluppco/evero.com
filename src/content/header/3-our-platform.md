@@ -1,6 +1,7 @@
 ---
 title: Our Platform
-link: about-us
+id: our-platform
+link: our-platform
 order: 2
 has_dropdown: true
 items: [

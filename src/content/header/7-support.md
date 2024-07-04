@@ -1,5 +1,6 @@
 ---
 title: Support
+id: support
 link: about-us
 order: 2
 has_dropdown: true

@@ -1,6 +1,7 @@
 ---
 title: Company
-link: about-us
+id: company
+link: company
 order: 2
 has_dropdown: true
 items: [

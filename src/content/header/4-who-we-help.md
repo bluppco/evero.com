@@ -1,6 +1,7 @@
 ---
 title: Who we help
-link: about-us
+id: who-we-help
+link: who-we-help
 order: 2
 has_dropdown: true
 items: [

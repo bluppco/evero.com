@@ -1,6 +1,7 @@
 ---
 title: Apps
-link: about-us
+id: apps
+link: apps
 order: 2
 has_dropdown: true
 items: [

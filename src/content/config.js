@@ -5,6 +5,7 @@ const headerCollection = defineCollection({
 	schema: z.object({
 
 		title: z.string(),
+		id: z.string(),
 		link: z.string(),
 		order: z.number(),
 		has_dropdown: z.boolean(),
