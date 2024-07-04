@@ -1,4 +1,8 @@
 ---
+
+// IMPORT ASTRO COMPONENTS
+import EveroHelpsCard from "@/components/home/whereeverohelps/card/index.astro"
+
 // IMPORT ASTRO ATOMS
 import HeadingTwo from "@/atoms/headings/two/index.astro";
 
@@ -6,22 +10,76 @@ import HeadingTwo from "@/atoms/headings/two/index.astro";
 const data = {
     title: "Where eVero Helps",
 };
+
 ---
 
-<section class="relative bg-where h-dvh bg-cover flex">
-    <div class="bg-white h-full w-[650px] relative left-[200px]">
-        <div class="p-3 mb-4">
-            <HeadingTwo>{data.title}</HeadingTwo>
+<section class="my-14 py-8 bg-where">
+    <div class="grid grid-cols-3">
+        <div class="col-span-3 md:col-span-2 flex flex-col items-center justify-center">
+            <div class="max-w-[600px] w-full flex flex-col gap-2 bg-white p-8 rounded-3xl">
+                <HeadingTwo>{data.title}</HeadingTwo>
+                <div class="evero_helps_slider">
+                    <div class="flex flex-col">
+                        <EveroHelpsCard
+                            description="Spend less time verifying service details and more time delivering care with easy-to-use data capture options."
+                            link_text="Electronic Visit Verification (EVV)"
+                            sub_title="eVero EVV"
+                            title="Electronic Visit Verification"
+                        />
+                        <EveroHelpsCard
+                            description="Simplify consumer-directed care programs with automated workflows, detailed reporting and streamlined data collection."
+                            link_text="Personal Care Services (CDPAP)"
+                            sub_title="Personal Care Services"
+                            title="Consumer-Directed Services"
+                        />
+                        <EveroHelpsCard
+                            description="Spend less time verifying service details and more time delivering care with easy-to-use data capture options."
+                            link_text="Electronic Visit Verification (EVV)"
+                            sub_title="eVero EVV"
+                            title="Electronic Visit Verification"
+                        />
+                    </div>
+                    <div class="flex flex-col">
+                        <EveroHelpsCard
+                            description="Bring order and clarity to documentation and reporting to elevate the level of care you provide. "
+                            link_text="Electronic Health Records  (EHR)"
+                            sub_title="eVero digitalAGENCY™"
+                            title="Electronic Health Records"
+                        />
+                        <EveroHelpsCard
+                            description="Bring the care team and individuals together in a digital ecosystem to enable easy collaboration and timely, informed decision-making."
+                            link_text="EMPOWER™ Self-Direction"
+                            sub_title="eVero EMPOWER™"
+                            title="Self-Direction"
+                        />
+                        <EveroHelpsCard
+                            description="Optimize claim management and realize revenue faster with our comprehensive billing, payment, and revenue management module."
+                            link_text="Billing & Revenue Cycle Management"
+                            sub_title="eVero ACCELERATE™"
+                            title="Billing & Revenue Cycle"
+                        />
+                    </div>
+                </div>
+            </div> 
         </div>
-
-        
-        
-    </div>
-
-    <div
-        class="absolute right-[100px] top-[200px] max-w-[400px] flex items-center justify-center"
-    >
-        <img src="/images/whereeverohelpsimages/Artboard-6-4.webp" class="" />
+        <div class="max-md:hidden flex items-center justify-center">
+            <img 
+                class="max-w-[400px]" 
+                src="/images/whereeverohelpsimages/Artboard-6-4.webp" 
+            />
+        </div>
     </div>
 </section>
 
+<script>
+    $(document).ready(function(){
+        $('.evero_helps_slider').slick({
+            autoplay: true,
+            autoplaySpeed: 3000,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false,
+            infinite: true,        
+        });
+    });
+</script>
