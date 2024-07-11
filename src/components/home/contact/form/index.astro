@@ -4,8 +4,10 @@
 import Input from "@/components/home/contact/form/input/index.astro"
 
 // IMPORT ASTRO ATOMS
-import FullSizeButton from "@/atoms/button/full-size-button/index.astro"
-import HeadingTwo from "@/atoms/headings/two/index.astro"
+import HeadingTwoThreeXl from "@/atoms/headings/two/three-xl/index.astro"
+import HeadingTwoXlGray from "@/atoms/headings/two/xl/gray/index.astro"
+import ParagraphBaseMedium from "@/atoms/paragraph/base/medium/index.astro"
+import WidthFullButton from "@/atoms/button/primary/width-full/index.astro"
 
 // GET ASTRO PROPS
 const {
@@ -17,35 +19,40 @@ const {
 
 } = Astro.props
 
+// HARDCODED DATA
+const data = {
+    textarea_placeholder: "Your Message"
+}
+const input_data = [
+
+    {placeholder: "Your Name*"},
+    {placeholder: "Your email*"},
+    {placeholder: "What are you inquiring about ?*"},
+
+]
+
 ---
 
 <div class="flex flex-col gap-8 px-6 max-w-[470px]">
     <div class="flex flex-col gap-4">
-        <HeadingTwo>{ title }</HeadingTwo>       
-        <h3 class="text-xl font-semibold text-gray-400 ">{ sub_title }</h3>       
-        <p class="text-[15px] font-medium">{ description }</p>
+        <HeadingTwoThreeXl>{ title }</HeadingTwoThreeXl>       
+        <HeadingTwoXlGray>{ sub_title }</HeadingTwoXlGray>       
+        <ParagraphBaseMedium>{ description }</ParagraphBaseMedium>
     </div>
     <form class="flex flex-col gap-4">
-        <Input       
-            input_name="yourname"
-            input_placeholder="Your Name*"
-        />
-        <Input        
-            input_name="youremail"
-            input_placeholder="Your email*"
-        />
-        <Input       
-            input_name="about"
-            input_placeholder="What are you inquiring about ?*"
-        />
+        {input_data.map((data) => (
+            <Input       
+                input_placeholder={ data.placeholder }
+            />
+        ))}
         <textarea 
-            placeholder="Your Message"
+            placeholder={ data.textarea_placeholder }
             rows="6" 
             cols="50" 
             class="resize-none w-full border-b border-gray-300 bg-transparent py-2 focus:outline-none text-lg md:text-xl text-left placeholder:text-gray-700"
-        ></textarea>        
+        ></textarea>
     </form>
     <div class="flex items-center justify-center">
-        <FullSizeButton>{ button_text }</FullSizeButton>
+        <WidthFullButton>{ button_text }</WidthFullButton>
     </div> 
 </div>

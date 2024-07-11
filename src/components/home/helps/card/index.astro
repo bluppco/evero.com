@@ -1,8 +1,9 @@
 ---
 
 // IMPORT ASTRO ATOMS
-import HeadingOrange from "@/atoms/headings/four/four-orange/index.astro"
-import ParagraphMediumCenter from "@/atoms/paragraph/medium/medium-center/index.astro"
+import HeadingFourTwoXlOrangeCenter from "@/atoms/headings/four/two-xl/orange/center/index.astro"
+import ParagraphBaseGrayCenter from "@/atoms/paragraph/base/gray/center/index.astro"
+import PictureCover from "@/atoms/picture/cover/index.astro"
 
 // GET ASTRO PROPS
 const {
@@ -18,14 +19,15 @@ const {
 
 <div class="flex flex-col items-center justify-center px-12 py-5 max-w-[380px]">
     <div class="rounded-full border-2 border-solid border-orange-400 p-6 mb-6">
-        <img
-            alt={ alternative_text }
-            class="size-10 object-cover"
-            src={ source }
-        />
+        <div class="size-10">
+            <PictureCover
+                alternative_text={ alternative_text }
+                source={ source }
+            />
+        </div>
     </div>
     <div class="flex flex-col gap-2">
-        <HeadingOrange>{ title }</HeadingOrange>
-        <ParagraphMediumCenter>{ description }</ParagraphMediumCenter>
+        <HeadingFourTwoXlOrangeCenter>{ title }</HeadingFourTwoXlOrangeCenter>
+        <ParagraphBaseGrayCenter>{ description }</ParagraphBaseGrayCenter>
     </div>
 </div>

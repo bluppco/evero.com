@@ -4,19 +4,28 @@
 import Container from "@/layouts/container/index.astro"
 
 // IMPORT ASTRO ATOMS
-import SmallestParagraph from "@/atoms/paragraph/smallest-for-map/index.astro"
+import HeadingThreeSmMediumOrange from "@/atoms/headings/three/sm/medium/orange/index.astro"
+import ParagraphSmWhite from "@/atoms/paragraph/sm/white/index.astro"
 
 // IMPORT ASTRO COMPONENTS
 import Form from "@/components/home/contact/form/index.astro"
 
 // HARDCODED DATA
-const data = {
+const map_data = {
 
     address: "48 South Service Road, Suite 300, Melville, NY 11747",
     contact_fax: "Fax: +1 631.390.8832",
     map_title: "Drop by for a visit!",
     support_email: "Support: support@evero.com",
     
+}
+const form_data = {
+
+    button_text: "Send",
+    description: "To contact our Sales team and request a demo, please use the form below.",
+    sub_title: "We're always ready for your call.",
+    title: "Contact Us"
+
 }
 
 ---
@@ -25,10 +34,10 @@ const data = {
     <div class="flex flex-col gap-8 md:gap-0 md:flex-row my-16">
         <div class="flex-1 justify-start">
             <Form
-                button_text="Send"
-                description="To contact our Sales team and request a demo, please use the form below."
-                sub_title="We're always ready for your call."
-                title="Contact Us"
+                button_text={ form_data.button_text }
+                description={ form_data.description }
+                sub_title={ form_data.sub_title }
+                title={ form_data.title }
             />
         </div>
         <div class="relative flex-1 min-h-80">
@@ -41,12 +50,12 @@ const data = {
             </iframe>
             <div class="absolute flex gap-6 p-6 rounded-b-[40px] bottom-0 z-10 w-full bg-gray-700 bg-opacity-90">
                 <div class="flex flex-col gap-2 max-w-[200px]">
-                    <h3 class="text-sm text-orange-500 font-medium">{ data.map_title }</h3>
-                    <p class="text-xs md:text-sm text-white">{ data.address }</p>
+                    <HeadingThreeSmMediumOrange>{ map_data.map_title }</HeadingThreeSmMediumOrange>
+                    <ParagraphSmWhite>{ map_data.address }</ParagraphSmWhite>
                 </div>
                 <div class="flex flex-col justify-end">
-                    <SmallestParagraph>{ data.contact_fax }</SmallestParagraph>
-                    <SmallestParagraph>{ data.support_email }</SmallestParagraph>
+                    <ParagraphSmWhite>{ map_data.contact_fax }</ParagraphSmWhite>
+                    <ParagraphSmWhite>{ map_data.support_email }</ParagraphSmWhite>
                 </div>
             </div>
         </div>

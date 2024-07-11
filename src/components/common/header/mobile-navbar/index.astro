@@ -1,5 +1,10 @@
 ---
 
+// IMPORT ASTRO ATOMS
+import ParagraphMedium from "@/atoms/paragraph/base/medium/index.astro"
+import ParagraphSm from "@/atoms/paragraph/sm/index.astro"
+import PictureContain from "@/atoms/picture/contain/index.astro"
+
 // IMPORT ASTRO COLLECTION
 import { getCollection } from "astro:content"
 
@@ -8,28 +13,30 @@ let header_data = await getCollection("header")
 header_data = header_data.sort( ( a, b ) => a.data.order - b.data.order )
 
 // IMPORT ICON
-import { FaMinus, FaPlus } from "react-icons/fa"
+import { FaPlus } from "react-icons/fa"
 
 ---
 
 <div class="xl:hidden fixed flex flex-col gap-8 duration-200 -right-96 top-0 z-20 p-8 bg-gray-100 h-dvh max-w-96 w-full" id="nav-links">
-    <div class="flex justify-end cursor-pointer" id="nav-cross">
-        <img src="images/cross-svgrepo-com.svg" class="size-4"/>
+    <div class="flex justify-end">
+        <div class="cursor-pointer size-4" id="nav-cross">
+            <PictureContain
+                alternative_text="close"
+                source="/icons/close.svg"
+            />
+        </div>
     </div>
-    <ul class="flex flex-col text-sm font-medium">
+    <ul class="flex flex-col">
         {
             header_data.map( ( item ) => {
                 return (
                     <div class="">
                         <li class="relative">
                             <div class={"flex items-center justify-between py-2 hover:text-orange-500 cursor-pointer w-full" + (item.data.has_dropdown ? " nav-item" : "")} data-id={ item.data.id }>
-                                <p class="text-[16px]">{ item.data.title }</p>
+                                <ParagraphMedium>{ item.data.title }</ParagraphMedium>
                                 { 
                                     item.data.has_dropdown && 
-                                    <span class="text-[10px] text-orange-400">
-                                        <span class="group-hover:hidden"><FaPlus/></span>
-                                        <span class="hidden group-hover:inline"><FaMinus/></span>
-                                    </span> 
+                                    <span class="text-[10px] text-orange-400"><FaPlus/></span> 
                                 }
                             </div>
                             {
@@ -41,7 +48,7 @@ import { FaMinus, FaPlus } from "react-icons/fa"
                                                 return(
                                                     <div class="hover:bg-orange-400 hover:text-white cursor-pointer px-1">
                                                         <a href={ "/" + sub_item.link } aria-label={ "explore" + sub_item.title }>
-                                                            <span class="text-sm font-normal">{ sub_item.title }</span>
+                                                            <ParagraphSm>{ sub_item.title }</ParagraphSm>
                                                         </a>
                                                     </div>
                                                 )

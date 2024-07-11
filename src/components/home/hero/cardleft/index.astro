@@ -1,10 +1,11 @@
 ---
 
 // IMPORT ASTRO ATOMS
-import HeadingOne from "@/atoms/headings/one/index.astro"
-import HeadingThree from "@/atoms/headings/three/index.astro"
-import ParagraphSmallCenter from "@/atoms/paragraph/small/small-center/index.astro"
-import PrimaryButton from "@/atoms/button/primary-button/index.astro"
+import HeadingOne from "@/atoms/headings/one/five-xl/index.astro"
+import HeadingThree from "@/atoms/headings/three/lg/medium/responsive-center/index.astro"
+import ParagraphBaseGrayCenter from "@/atoms/paragraph/base/gray/responsive-center/index.astro"
+import PictureCover from "@/atoms/picture/cover/index.astro"
+import PrimaryButton from "@/atoms/button/primary/index.astro"
 
 // GET ASTRO PROPS
 const {
@@ -22,18 +23,17 @@ const {
 
 <div class="grid md:grid-cols-2 gap-4">
     <div class="py-16 xl:pl-28 flex items-center justify-center max-sm:bg-gray-200">
-        <div class="space-y-6 p-11 flex flex-col items-center justify-center md:items-start max-sm:bg-white rounded-[30px]">
+        <div class="flex flex-col gap-6 p-11 items-center justify-center md:items-start max-sm:bg-white rounded-[30px]">
             <HeadingOne>{ title }</MainHeading>
-            <ParagraphSmallCenter>{ description }</ParagraphSmallCenter>
+            <ParagraphBaseGrayCenter>{ description }</ParagraphBaseGrayCenter>
             <HeadingThree>{ sub_title }</HeadingThree>
             <PrimaryButton>{ button_text }</PrimaryButton>
         </div>
     </div>
-    <div class="hidden md:block">
-        <img
-            alt={ alternative_text }
-            class="w-full h-full object-cover rounded-l-full"
-            src={ source }
+    <div class="hidden md:block overflow-hidden rounded-l-full">
+        <PictureCover
+            alternative_text={ alternative_text }
+            source={ source }
         />
     </div>
 </div>

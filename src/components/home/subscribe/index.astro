@@ -7,9 +7,9 @@ import Container from "@/layouts/container/index.astro"
 import Input from "@/components/home/subscribe/input/index.astro"
 
 // IMPORT ASTRO ATOMS
-import HeadingTwo from "@/atoms/headings/two/index.astro"
-import HeadingThreeCenter from "@/atoms/headings/three/three-text-center/index.astro"
-import PrimaryButton from "@/atoms/button/primary-button/index.astro"
+import HeadingThreeLgMediumCenter from "@/atoms/headings/three/lg/medium/center/index.astro"
+import HeadingTwoThreeXl from "@/atoms/headings/two/three-xl/index.astro"
+import PrimaryButton from "@/atoms/button/primary/index.astro"
 
 // HARDCODED DATA
 const data = {
@@ -27,8 +27,8 @@ const data = {
         <div class="flex justify-center my-10">
             <div class=" flex flex-col gap-10">
                 <div class="flex flex-col items-center justify-center gap-4">
-                    <HeadingTwo>{ data.title }</HeadingTwo>
-                    <HeadingThreeCenter>{ data.sub_title }</HeadingThreeCenter>
+                    <HeadingTwoThreeXl>{ data.title }</HeadingTwoThreeXl>
+                    <HeadingThreeLgMediumCenter>{ data.sub_title }</HeadingThreeLgMediumCenter>
                 </div>
                 <div class="flex flex-col gap-10">
                     <div class="flex flex-col md:flex-row justify-center items-center gap-10">

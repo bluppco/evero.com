@@ -1,5 +1,11 @@
 ---
 
+// IMPORT ASTRO ATOMS
+import PictureContain from "@/atoms/picture/contain/index.astro"
+import HeadingThreeXlMedium from "@/atoms/headings/three/xl/medium/idnex.astro"
+import ParagraphBase from "@/atoms/paragraph/base/index.astro"
+import ParagraphSmGrayMedium from "@/atoms/paragraph/sm/gray/medium/index.astro"
+
 // GET ASTRO PROPS
 const {
 
@@ -15,19 +21,18 @@ const {
 ---
 
 <div class="!flex flex-col gap-4 p-6">
-    <div class="flex justify-center rounded-2xl border border-gray-300 w-full h-64">
-        <img
-            alt={ alternative_text }
-            class="w-full object-contain rounded-2xl"
-            src={ source }
+    <div class="flex justify-center overflow-hidden rounded-2xl border border-gray-300 w-full h-64">
+        <PictureContain
+            alternative={ alternative_text }
+            source={ source }
         />
     </div>
-    <h3 class="text-black text-xl font-medium">{ title }</h3>
-    <p class="text-gray-400 text-sm font-medium">{ date }</p>
-    <p class="text-[16px]">{ description }</p>
+    <HeadingThreeXlMedium>{ title }</HeadingThreeXlMedium>
+    <ParagraphSmGrayMedium>{ date }</ParagraphSmGrayMedium>
+    <ParagraphBase>{ description }</ParagraphBase>
     <div>
         <a href={ link }>
-            <button class="text-orange-500 hover:text-gray-500 text-[16px] font-semibold border-b-2 border-orange-100 py-1">Read More</button>
+            <span class="text-orange-500 hover:text-gray-500 font-semibold border-b-2 border-orange-100 py-1">Read More</span>
         </a>
     </div>
 </div>

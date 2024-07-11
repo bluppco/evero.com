@@ -1,7 +1,9 @@
 ---
 
 // IMPORT ASTRO ATOMS
-import ParagraphMedium from "@/atoms/paragraph/medium/index.astro"
+import HeadingThreeLgBold from "@/atoms/headings/three/lg/bold/index.astro"
+import ParagraphLg from "@/atoms/paragraph/lg/index.astro"
+import PictureCover from "@/atoms/picture/cover/index.astro"
 
 // GET ASTRO PROPS
 const {
@@ -17,15 +19,14 @@ const {
 <div class="flex flex-col gap-2">
     <div class="h-56">
         <a href="#">
-            <img
-                alt={ alternative_text }
-                class="object-cover h-full"
-                src={ source }
+            <PictureCover
+                alternative_text={ alternative_text }
+                source={ source }
             />
         </a>
     </div>
     <div class="flex flex-col gap-2">
-        <h3 class="text-black text-lg font-bold">{ title }</h3>
-        <ParagraphMedium>{ description }</ParagraphMedium>
+        <HeadingThreeLgBold>{ title }</HeadingThreeLgBold>
+        <ParagraphLg>{ description }</ParagraphLg>
     </div>
 </div>

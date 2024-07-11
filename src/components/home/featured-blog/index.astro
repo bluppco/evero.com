@@ -1,8 +1,8 @@
 ---
 
 // IMPORT ASTRO ATOMS
-import HeadingTwo from "@/atoms/headings/two/index.astro"
-import PrimaryButton from "@/atoms/button/primary-button/index.astro"
+import HeadingTwoThreeXl from "@/atoms/headings/two/three-xl/index.astro"
+import PrimaryButton from "@/atoms/button/primary/index.astro"
 
 // IMPORT ASTRO COMPONENTS
 import FeaturedCard from "@/components/home/featured-blog/card/index.astro"
@@ -14,46 +14,60 @@ const data = {
     title: "Featured Blog Posts",
 
 }
+const featured_card = [
+
+    {
+        alternative_text: "springconfrence",
+        date: "February 23, 2024",
+        description: "Here’s a quick rundown of the I/DD industry conferences in which eVero has planned for the first few months of 2024. If you have plans to attend any of... ",
+        link: "/",
+        source: "/images/featuredimages/Summer-Conference-24-1.webp",
+        title: "eVero's 2024 Spring Conference Schedule",
+    },
+    {
+        alternative_text: "outreach",
+        date: "March 19, 2024",
+        description: "The eVero Outreach team conducted a Hire Me! interactive seminar at the Nassau BOCES Rosemary Kennedy Center to help prepare students with tips on job hunting, interview skills, and... ",
+        link: "/",
+        source: "/images/featuredimages/outreach.webp",
+        title: "eVero Outreach Interview Workshop with Nassau BOCES",
+    },
+    {
+        alternative_text: "autismawareness",
+        date: "April 2, 2024",
+        description: "Celebrating autism awareness & acceptance! ",
+        link: "/",
+        source: "/images/featuredimages/autism.webp",
+        title: "April is Autism Awareness Month!",
+    },
+    {
+        alternative_text: "fallguyscreening",
+        date: "may 7, 2024",
+        description: "Last week we wrapped up Autism Awareness Month with a special sensory-friendly screening of Universal's 'Fall Guy' at the Cinema deLux Showcase theatre in Farmingdale. The event featured a... ",
+        link: "/",
+        source: "/images/featuredimages/fallguy.webp",
+        title: "'Fall Guy' Sensory-Friendly Screening",
+    },
+
+]
 
 ---
 
 <section class="my-24 flex flex-col gap-6">
     <div class="flex items-center justify-center">
-        <HeadingTwo>{ data.title }</HeadingTwo>
+        <HeadingTwoThreeXl>{ data.title }</HeadingTwoThreeXl>
     </div>
     <div class="responsive">
-        <FeaturedCard
-            alternative_text="springconfrence"
-            date="February 23, 2024"
-            description="Here’s a quick rundown of the I/DD industry conferences in which eVero has planned for the first few months of 2024. If you have plans to attend any of... "
-            link="/"
-            source="images/featuredimages/Summer-Conference-24-1.webp"
-            title="eVero's 2024 Spring Conference Schedule"
-        />
-        <FeaturedCard
-            alternative_text="outreach"
-            date="March 19, 2024"
-            description="The eVero Outreach team conducted a Hire Me! interactive seminar at the Nassau BOCES Rosemary Kennedy Center to help prepare students with tips on job hunting, interview skills, and... "
-            link="/"
-            source="images/featuredimages/outreach.webp"
-            title="eVero Outreach Interview Workshop with Nassau BOCES"
-        />
-        <FeaturedCard
-            alternative_text="autismawareness"
-            date="April 2, 2024"
-            description="Celebrating autism awareness & acceptance! "
-            link="/"
-            source="images/featuredimages/autism.webp"
-            title="April is Autism Awareness Month!"
-        />
-        <FeaturedCard
-            alternative_text="fallguyscreening"
-            date="may 7, 2024"
-            description="Last week we wrapped up Autism Awareness Month with a special sensory-friendly screening of Universal's 'Fall Guy' at the Cinema deLux Showcase theatre in Farmingdale. The event featured a... "
-            link="/"
-            source="images/featuredimages/fallguy.webp"
-            title="'Fall Guy' Sensory-Friendly Screening"
-        />
+        {featured_card.map((data) => (
+            <FeaturedCard
+                alternative_text={ data.alternative_text }
+                date={ data.date }
+                description={ data.description }
+                link={ data.link }
+                source={ data.source }
+                title={ data.title }
+            />
+        ))}
     </div>
     <div class="flex items-center justify-center">
         <PrimaryButton>

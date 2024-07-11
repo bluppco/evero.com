@@ -1,18 +1,26 @@
 ---
 
+// IMPORT ASTRO ATOMS
+import PictureContain from "@/atoms/picture/contain/index.astro"
+
 // HARDCODED DATA
 const data = {
 
-    source: "icons/star-svgrepo-com.svg",
+    source: "/icons/star-svgrepo-com.svg",
 
 }
+
+const numberOfStars = 5
 
 ---
 
 <div class="flex">
-    <img class="size-[16px]" src={ data.source }/>
-    <img class="size-[16px]" src={ data.source }/>
-    <img class="size-[16px]" src={ data.source }/>
-    <img class="size-[16px]" src={ data.source }/>
-    <img class="size-[16px]" src={ data.source }/>
+    {Array.from({ length: numberOfStars }).map((_, index) => (
+        <div class="size-4">
+            <PictureContain 
+                alternative_text={ `Star ${ index + 1 }` } 
+                source={ data.source } 
+            />
+        </div>
+    ))}
 </div>

@@ -3,6 +3,12 @@
 // IMPORT ASTRO COMPONENTS
 import Stars from "@/components/home/testimonials/card/stars/index.astro"
 
+// IMPORT ASTRO ATOMS
+import HeadingThreeSmMedium from "@/atoms/headings/three/sm/medium/index.astro"
+import ParagraphBase from "@/atoms/paragraph/base/index.astro"
+import ParagraphXs from "@/atoms/paragraph/xs/index.astro"
+import PictureCover from "@/atoms/picture/cover/index.astro"
+
 // GET ASTRO PROPS
 const {
 
@@ -19,19 +25,20 @@ const {
 <div class="flex items-center justify-center p-4 mb-6">
     <div class="bg-gray-100 rounded-3xl min-h-[360px]">
         <div class="flex items-center justify-between px-8 py-6 border-b-2 border-gray-300">
-            <img 
-                alt={ alternative_text }
-                class="size-12 rounded-full"
-                src={ source }
-            />
+            <div class="size-12 rounded-full overflow-hidden">
+                <PictureCover
+                    alternative_text={ alternative_text }
+                    source={ source }
+                />
+            </div>
             <div>
-                <h3 class="text-sm font-semibold">{ title }</h3>
-                <p class="text-xs">{ sub_title }</p>
+                <HeadingThreeSmMedium>{ title }</HeadingThreeSmMedium>
+                <ParagraphXs>{ sub_title }</ParagraphXs>
             </div>
             <Stars/>
         </div>
         <div class="px-8 py-6">
-            <p class="text-[15px]">{ description }</p>
+            <ParagraphBase>{ description }</ParagraphBase>
         </div>
     </div>
 </div>

@@ -7,7 +7,7 @@ import Container from "@/layouts/container/index.astro"
 import LearnCard from "@/components/home/learn-about/card/index.astro"
 
 // IMPORT ASTRO ATOMS
-import HeadingTwo from "@/atoms/headings/two/index.astro"
+import HeadingTwoThreeXl from "@/atoms/headings/two/three-xl/index.astro"
 
 // HARDCODED DATA
 const data = {
@@ -16,36 +16,46 @@ const data = {
 
 }
 
+const learn_card_data = [
+
+    {
+        alternative_text: "ourPlatform",
+        description: "A unified enterprise platform that optimizes workflows, increasing transparency and productivity.",
+        source: "images/learnimages/ourplatform.gif",
+        title: "Our Platform",
+    },
+    {
+        alternative_text: "ourMobileApp",
+        description: "Native iOS and Android apps that extend the power of our platform to your smartphone and tablet.",
+        source: "images/learnimages/ourmobileapp.gif",
+        title: "Our Mobile Apps",
+    },
+    {
+        alternative_text: "ourBillingModule",
+        description: "Submit claims faster, realize revenue sooner and manage all aspects of your billing process in one place.",
+        source: "images/learnimages/ourbillingmodule.gif",
+        title: "Our Billing Module",
+    },
+
+]
+
 ---
 
 <Container>
     <div class="my-7 p-8 bg-gray-100 rounded-[48px]">
         <div class="flex flex-col gap-10">
             <div class="flex items-center justify-center">
-                <HeadingTwo>{ data.title }</HeadingTwo>
+                <HeadingTwoThreeXl>{ data.title }</HeadingTwoThreeXl>
             </div>
-
             <div class="flex flex-col gap-6 sm:flex-row">
-                <LearnCard
-                    alternative_text="ourPlatform"
-					description="A unified enterprise platform that optimizes workflows, increasing transparency and productivity."
-					source="images/learnimages/ourplatform.gif"
-					title="Our Platform"
-                />
-
-                <LearnCard
-                    alternative_text="ourMobileApp"
-					description="Native iOS and Android apps that extend the power of our platform to your smartphone and tablet."
-					source="images/learnimages/ourmobileapp.gif"
-					title="Our Mobile Apps"
-                />
-
-                <LearnCard
-                    alternative_text="ourbillingmodule"
-					description="Submit claims faster, realize revenue sooner and manage all aspects of your billing process in one place."
-					source="images/learnimages/ourbillingmodule.gif"
-					title="Our Billing Module"
-                />
+                {learn_card_data.map((card) => (
+                    <LearnCard
+                        alternative_text={ card.alternative_text }
+                        description={ card.description }
+                        source={ card.source }
+                        title={ card.title }
+                    />
+                ))}
             </div>
         </div>
     </div>

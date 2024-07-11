@@ -11,8 +11,14 @@ let footer_data = await getCollection("footer")
 footer_data = footer_data.sort( ( a, b ) => a.data.order - b.data.order )
 
 // IMPORT ASTRO ATOMS
-import FooterVerified from "@/atoms/footer-verified/index.astro"
-import Picture from "@/atoms/picture/index.astro"
+import HeadingFour from "@/atoms/headings/four/base/semi-bold/index.astro"
+import HeadingLgThreeMedium from "@/atoms/headings/three/lg/medium/index.astro"
+import HeadingThreeOrange from "@/atoms/headings/three/base/orange/index.astro"
+import ParagraphSm from "@/atoms/paragraph/sm/index.astro"
+import ParagraphSmGray from "@/atoms/paragraph/sm/gray/index.astro"
+import ParagraphSmItalic from "@/atoms/paragraph/sm/medium/italic/center/index.astro"
+import ParagraphSmMedium from "@/atoms/paragraph/sm/medium/index.astro"
+import PictureContain from "@/atoms/picture/contain/index.astro"
 
 // HARDCODED DATA
 const data = {
@@ -20,13 +26,51 @@ const data = {
     copyright: "© 2024 eVero Corporation | All Rights Reserved",
     description: "With a proprietary software platform that connects the entire care continuum, our easy-to-use ecosystem optimizes workflows while increasing transparency and productivity. Continually evolving our offerings to support better health outcomes, we’re a place where innovative technology meets human care.",
     follow: "Follow us",
-    logo_source: "logo/Layer-21.svg",
+    logo_source: "logo/logo.svg",
     quote: "Empowering outcomes for both caregivers and individuals with I/DD.",
     title: "Where innovative technology meets human care.",
     verification_badge_1_source: "images/HIPAA.webp",
     verification_badge_2_source: "images/Employability.webp",
 
 }
+const socials = [
+
+    {
+        alternative_text: "Linkedin",
+        link: "",
+        source:"/icons/socials/linkedin.svg"
+    },
+    {
+        alternative_text: "Linkedin",
+        link: "",
+        source:"/icons/socials/instagram.svg"
+    },
+    {
+        alternative_text: "Linkedin",
+        link: "",
+        source:"/icons/socials/facebook.svg"
+    },
+    {
+        alternative_text: "Linkedin",
+        link: "",
+        source:"/icons/socials/x.svg"
+    },
+
+]
+const verified_badge = [
+
+    {
+        alternative_text: "hippa",
+        link: "",
+        source:"/images/HIPAA.webp"
+    },
+    {
+        alternative_text: "hippa",
+        link: "",
+        source:"/images/Employability.webp"
+    }
+
+]
 
 ---
 
@@ -34,14 +78,17 @@ const data = {
     <div class="flex flex-col gap-6">
         <div class="flex flex-col gap-6 lg:gap-24 lg:flex-row justify-center py-6 border-t border-gray-300">
             <div class="flex flex-col flex-1 gap-6">
-                <div class="h-12">
-                    <img class="h-full" src={ data.logo_source } />
+                <div class="w-32 h-12">
+                    <PictureContain
+                        alternative_text="logo"
+                        source={ data.logo_source }
+                    />
                 </div>
                 <div class="flex flex-col gap-6">
-                    <h3 class="text-orange-400 text-[15px] font-semibold">{ data.title }</h3>
-                    <p class="text-[13px] font-medium">{ data.description }</p>
+                    <HeadingThreeOrange>{ data.title }</HeadingThreeOrange>
+                    <ParagraphSmMedium>{ data.description }</ParagraphSmMedium>
                     <div class="p-4 border-2 border-orange-400 rounded-xl">
-                        <p class="text-[13px] text-center font-medium italic">{ data.quote }</p>
+                        <ParagraphSmItalic>{ data.quote }</ParagraphSmItalic>
                     </div>
                 </div>
             </div>
@@ -51,16 +98,14 @@ const data = {
                             footer_data.map( ( item ) => {
                                 return (
                                     <div class="px-4 flex flex-col gap-2">
-                                        <h4 class="text-[15px] font-semibold">
-                                            { item.data.title } 
-                                        </h4>
+                                        <HeadingFour>{ item.data.title }</HeadingFour>
                                         <li class="flex flex-col gap-2">
                                             {
                                                 item.data.items.map( ( sub_item ) => {
                                                     return(
                                                         <div class="hover:text-orange-500 hover:underline underline-offset-2 decoration-1 cursor-pointer">
                                                             <a href={ "/" + sub_item.link } aria-label={ "explore" + sub_item.title }>
-                                                                <span class="text-[13px]">{ sub_item.title }</span>
+                                                                <ParagraphSm>{ sub_item.title }</ParagraphSm>
                                                             </a>
                                                         </div>
                                                     )
@@ -76,31 +121,31 @@ const data = {
         </div>
         <div class="flex flex-col md:flex-row gap-8 border-b border-gray-300 pb-6">
             <div class="flex gap-4 max-md:justify-center w-full">
-                <h3 class="text-lg font-medium">{ data.follow }</h3>
-                <Picture
-                    alternative_text="li"
-                    source="/icons/linkedin.svg"
-                />
-                <Picture
-                    alternative_text="li"
-                    source="/icons/instagram.svg"
-                />
-                <Picture
-                    alternative_text="li"
-                    source="/icons/facebook.svg"
-                />
-                <Picture
-                    alternative_text="li"
-                    source="/icons/Xtwitter.svg"
-                />
+                <HeadingLgThreeMedium>{ data.follow }</HeadingLgThreeMedium>
+                {socials.map((data) =>(
+                    <a href={ data.link }>
+                        <div class="size-8 overflow-hidden">
+                            <PictureContain
+                                alternative_text={ data.alternative_text }
+                                source={ data.source }
+                            />
+                        </div>
+                    </a>
+                ))}
             </div>
             <div class="flex justify-center gap-6 w-full">
-                <FooterVerified source={ data.verification_badge_1_source } />
-                <FooterVerified source={ data.verification_badge_2_source } />
+                {verified_badge.map((data) => (
+                    <div class="max-h-32 max-sm:h-16">
+                        <PictureContain
+                            alternative_text={ data.alternative_text }
+                            source={ data.source }
+                        />
+                    </div>
+                ))}
             </div>
         </div>
         <div class="flex justify-center">
-            <p class="text-sm text-gray-400">{ data.copyright }</p>
+            <ParagraphSmGray>{ data.copyright }</ParagraphSmGray>
         </div>
     </div>
 </Container>
