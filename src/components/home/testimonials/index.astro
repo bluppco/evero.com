@@ -10,7 +10,8 @@ import TestimonialCard from "@/components/home/testimonials/card/index.astro"
 // HARDCODED DATA
 const data = {
 
-    buttontext: "Learn More",
+    button_link:"/",
+    button_text: "Learn More",
     title: "Don't just take our word for it!",
 
 }
@@ -86,9 +87,7 @@ const testimonial_card_data = [
         ))}
     </div>
     <div class="flex items-center justify-center">
-        <PrimaryButton>
-            { data.buttontext }
-        </PrimaryButton>
+        <a href={ data.button_link }><PrimaryButton> { data.button_text }</PrimaryButton></a>
     </div>
 </section>
 

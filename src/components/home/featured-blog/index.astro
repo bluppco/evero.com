@@ -10,7 +10,8 @@ import FeaturedCard from "@/components/home/featured-blog/card/index.astro"
 // HARDCODED DATA
 const data = {
 
-    buttontext: "See More Updates",
+    button_link: "/",
+    button_text: "See More Updates",
     title: "Featured Blog Posts",
 
 }
@@ -70,9 +71,7 @@ const featured_card = [
         ))}
     </div>
     <div class="flex items-center justify-center">
-        <PrimaryButton>
-            { data.buttontext }
-        </PrimaryButton>
+        <a href={ data.button_link }><PrimaryButton>{ data.button_text }</PrimaryButton></a>
     </div>
 </section>
 

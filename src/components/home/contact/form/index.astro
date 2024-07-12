@@ -12,6 +12,7 @@ import WidthFullButton from "@/atoms/button/primary/width-full/index.astro"
 // GET ASTRO PROPS
 const {
 
+    button_link,
     button_text,
     description,
     sub_title,
@@ -53,6 +54,6 @@ const input_data = [
         ></textarea>
     </form>
     <div class="flex items-center justify-center">
-        <WidthFullButton>{ button_text }</WidthFullButton>
+        <a href={ button_link } class="w-full"><WidthFullButton>{ button_text }</WidthFullButton></a>
     </div> 
 </div>

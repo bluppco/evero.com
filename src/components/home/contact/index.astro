@@ -21,6 +21,7 @@ const map_data = {
 }
 const form_data = {
 
+    Button_link: "/",
     button_text: "Send",
     description: "To contact our Sales team and request a demo, please use the form below.",
     sub_title: "We're always ready for your call.",
@@ -34,6 +35,7 @@ const form_data = {
     <div class="flex flex-col gap-8 md:gap-0 md:flex-row my-16">
         <div class="flex-1 justify-start">
             <Form
+                button_link={ form_data.Button_link }
                 button_text={ form_data.button_text }
                 description={ form_data.description }
                 sub_title={ form_data.sub_title }

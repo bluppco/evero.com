@@ -14,6 +14,7 @@ import PrimaryButton from "@/atoms/button/primary/index.astro"
 // HARDCODED DATA
 const data = {
 
+    button_link: "/",
     button_text: "Submit now",
     sub_title: "For the latest industry news & events - delivered right to you inbox.",
     title: "Subscribe Now",
@@ -42,7 +43,7 @@ const data = {
                         />
                     </div>
                     <div class="flex justify-center">
-                        <PrimaryButton>{ data.button_text }</PrimaryButton>
+                        <a href={ data.button_link }><PrimaryButton>{ data.button_text }</PrimaryButton></a>
                     </div>
                 </div>
             </div>

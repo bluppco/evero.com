@@ -12,6 +12,7 @@ const {
 
     alternative_text,
     button_text,
+    button_link,
     description,
     source,
     sub_title,
@@ -33,7 +34,7 @@ const {
             <HeadingOne>{ title }</MainHeading>
             <ParagraphBaseGrayCenter>{ description }</ParagraphBaseGrayCenter>
             <HeadingThree>{ sub_title }</HeadingThree>
-            <PrimaryButton>{ button_text }</PrimaryButton>
+            <a href={ button_link }><PrimaryButton>{ button_text }</PrimaryButton></a>
         </div>
     </div>
 </div>

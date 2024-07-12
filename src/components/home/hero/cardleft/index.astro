@@ -11,6 +11,7 @@ import PrimaryButton from "@/atoms/button/primary/index.astro"
 const {
 
     alternative_text,
+    button_link,
     button_text,
     description,
     source,
@@ -27,7 +28,7 @@ const {
             <HeadingOne>{ title }</MainHeading>
             <ParagraphBaseGrayCenter>{ description }</ParagraphBaseGrayCenter>
             <HeadingThree>{ sub_title }</HeadingThree>
-            <PrimaryButton>{ button_text }</PrimaryButton>
+            <a href={ button_link }><PrimaryButton>{ button_text }</PrimaryButton></a>
         </div>
     </div>
     <div class="hidden md:block overflow-hidden rounded-l-full">
