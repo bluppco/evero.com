@@ -1,0 +1,191 @@
+---
+
+// IMPORT ASTRO COLLECTION
+import { getCollection } from "astro:content"
+
+// IMPORT HEADER COLLECTION
+let header_data = await getCollection("header")
+header_data = header_data.sort( ( a, b ) => a.data.order - b.data.order )
+
+// IMPORT ASTRO COMPONENTS
+import Mobilenav from "@/components/common/header/mobile-navbar/index.astro"
+
+// IMPORT ICON
+import { FaMinus, FaPlus } from "react-icons/fa"
+
+// IMPORT ATOMS
+import ParagraphLgHoverOrange from "@/atoms/paragraph/lg/bold/hover-orange/index.astro"
+import PictureContain from "@/atoms/picture/contain/index.astro"
+import PrimaryButton from "@/atoms/button/primary/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    buttontext: "Contact Us",
+    phone_no: "+1 844 GOEVERO",
+
+}
+const socials_source = [
+
+    {
+        alternative_text: "Linkedin",
+        link: "",
+        source:"/icons/socials/linkedin.svg"
+    },
+    {
+        alternative_text: "Linkedin",
+        link: "",
+        source:"/icons/socials/instagram.svg"
+    },
+    {
+        alternative_text: "Linkedin",
+        link: "",
+        source:"/icons/socials/facebook.svg"
+    },
+    {
+        alternative_text: "Linkedin",
+        link: "",
+        source:"/icons/socials/x.svg"
+    },
+
+]
+
+---
+
+<header class="bg-white shadow-md p-2 z-10">
+    <div class="md:hidden flex justify-between border-b border-gray-300 p-2">
+        <div class="flex gap-2 items-center hover:cursor-pointer duration-150">
+            <div class="size-6">
+                <PictureContain
+                    alternative_text="phone"
+                    source="/icons/phone.svg"
+                />
+            </div>
+            <a href="">
+                <ParagraphLgHoverOrange>{ data.phone_no }</ParagraphLgHoverOrange>
+            </a>
+        </div>
+        <div class="flex items-center gap-2">
+            {socials_source.map((data) =>(
+                <a href={ data.link }>
+                    <div class="size-6 overflow-hidden">
+                        <PictureContain
+                            alternative_text={ data.alternative_text }
+                            source={ data.source }
+                        />
+                    </div>
+                </a>
+            ))}
+        </div>
+    </div>
+    <div class="px-3 py-2 flex justify-between items-center md:gap-5 xl:gap-3 2xl:gap-8">
+        <div class="h-12">
+            <PictureContain
+                alternative_text="logo"
+                source="/logo/logo.svg"
+            />
+        </div>
+        <div class="max-md:hidden flex gap-2 items-center cursor-pointer duration-150">
+            <div class="size-8">
+                <PictureContain
+                    alternative_text="phone"
+                    source="/icons/phone.svg"
+                />
+            </div>
+            <a href="">
+                <ParagraphLgHoverOrange>{ data.phone_no }</ParagraphLgHoverOrange>
+            </a> 
+        </div>
+        <ul class="hidden xl:flex items-center md:gap-6 mac:gap-8 text-sm font-medium h-8">
+            {
+                header_data.map( ( item ) => {
+                    return (
+                        <li class="relative group flex items-center h-8 ">
+                            <div class="flex items-center gap-1 hover:text-orange-500">
+                                <a href={ "/" + item.data.link } aria-label={ "explore " + item.data.title }>
+                                    { item.data.title } 
+                                </a>
+                                { 
+                                    item.data.has_dropdown && 
+                                    <span class="text-[10px] mt-[3px] text-orange-400">
+                                        <span class="group-hover:hidden"><FaPlus/></span>
+                                        <span class="hidden group-hover:inline"><FaMinus/></span>
+                                    </span> 
+                                }
+                            </div>
+                            {
+                                item.data.has_dropdown &&
+                                <div class="hidden group-hover:block group-hover:flex-col group-hover:transition-all duration-150 absolute shadow-md bg-white left-0 z-20 top-7 w-48 gap-2">
+                                    <div class="flex flex-col bg-white rounded-3xl">
+                                        {
+                                            item.data.items.map( ( sub_item, sub_item_index ) => {
+                                                return(
+                                                    <div class="px-5 py-3 bg-white hover:bg-orange-400 hover:text-white cursor-pointer">
+                                                        <a href={ "/" + sub_item.link } aria-label={ "explore" + sub_item.title }>
+                                                            <span class="text-sm font-normal">{ sub_item.title }</span>
+                                                        </a>
+                                                    </div>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                            }
+                        </li>
+                    )
+                })
+            }
+        </ul>
+        <div class="max-xl:hidden">
+            <PrimaryButton>{ data.buttontext }</PrimaryButton>
+        </div>
+        <div class="hidden md:flex items-center gap-2">
+            {socials_source.map((data) =>(
+                <a href={ data.link }>
+                    <div class="size-8 overflow-hidden">
+                        <PictureContain
+                            alternative_text={ data.alternative_text }
+                            source={ data.source }
+                        />
+                    </div>
+                </a>
+            ))}
+        </div>
+        <div class="xl:hidden cursor-pointer size-8 overflow-hidden" id="burger-menu">
+            <PictureContain
+                alternative_text="burgermenu"
+                source="images/burger-menu-svgrepo-com.svg"
+            />
+        </div>
+        <Mobilenav/>
+    </div>
+</header>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // ON CLICK OF BURGER MENU OPEN MENU FUNCTION TRIGGERS
+        const burgerMenu = document.getElementById('burger-menu');
+        burgerMenu.addEventListener('click', function() {
+            openMenu(this);
+        });
+        
+        // OPEN MENU FUNCTION
+        const navlinks = document.getElementById('nav-links')
+        function openMenu(e) {
+            navlinks.classList.remove('-right-96')
+            navlinks.classList.add('right-0')
+        }
+        
+        // CLOSE ICON CLOSES NAVBAR
+        const navcross = document.getElementById('nav-cross')
+        navcross.addEventListener('click', function() {
+            closeMenu(this);
+        });
+
+        // CLOSE NAVBAR FUNCTION
+        function closeMenu(e) {
+            navlinks.classList.remove('right-0')
+            navlinks.classList.add('-right-96')
+        }
+    });
+</script>

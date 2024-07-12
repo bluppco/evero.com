@@ -1,0 +1,33 @@
+---
+
+// IMPORT ASTRO ATOMS
+import HeadingFourThreeXlMediumCenter from "@/atoms/headings/four/three-xl/medium/center/index.astro"
+import ParagraphLgCenter from "@/atoms/paragraph/lg/center/index.astro"
+import PictureContain from "@/atoms/picture/contain/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    alternative_text,
+    description,
+    source,
+    title,
+
+} = Astro.props
+
+---
+
+<div class="flex flex-col items-center justify-center rounded-3xl bg-gray-100 px-12 py-8">
+    <div class="size-36">
+        <PictureContain
+            alternative_text={ alternative_text }
+            source={ source }
+        />
+    </div>
+    <div class="flex flex-col gap-6">
+        <HeadingFourThreeXlMediumCenter>
+            <span class="text-4xl text-orange-400 underline">e</span>{ title }
+        </HeadingFourThreeXlMediumCenter>
+        <ParagraphLgCenter>{ description }</ParagraphLgCenter>
+    </div>
+</div>

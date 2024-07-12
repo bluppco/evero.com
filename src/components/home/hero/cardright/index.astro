@@ -1,0 +1,40 @@
+---
+
+// IMPORT ASTRO ATOMS
+import HeadingOne from "@/atoms/headings/one/five-xl/index.astro"
+import HeadingThree from "@/atoms/headings/three/lg/medium/responsive-center/index.astro"
+import ParagraphBaseGrayCenter from "@/atoms/paragraph/base/gray/responsive-center/index.astro"
+import PictureCover from "@/atoms/picture/cover/index.astro"
+import PrimaryButton from "@/atoms/button/primary/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    alternative_text,
+    button_text,
+    button_link,
+    description,
+    source,
+    sub_title,
+    title,
+
+} = Astro.props
+
+---
+
+<div class="grid md:grid-cols-2 gap-4">
+    <div class="hidden md:block overflow-hidden rounded-r-full">
+        <PictureCover
+            alternative_text={ alternative_text }
+            source={ source }
+        />
+    </div>
+    <div class="py-16 xl:pr-28 flex items-center justify-center max-sm:bg-gray-200">
+        <div class="flex flex-col gap-6 p-10 items-center justify-center md:items-start max-sm:bg-white rounded-[30px]">
+            <HeadingOne>{ title }</MainHeading>
+            <ParagraphBaseGrayCenter>{ description }</ParagraphBaseGrayCenter>
+            <HeadingThree>{ sub_title }</HeadingThree>
+            <a href={ button_link }><PrimaryButton>{ button_text }</PrimaryButton></a>
+        </div>
+    </div>
+</div>

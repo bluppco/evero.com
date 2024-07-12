@@ -1,0 +1,52 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import Input from "@/components/home/subscribe/input/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingThreeLgMediumCenter from "@/atoms/headings/three/lg/medium/center/index.astro"
+import HeadingTwoThreeXl from "@/atoms/headings/two/three-xl/index.astro"
+import PrimaryButton from "@/atoms/button/primary/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    button_link: "/",
+    button_text: "Submit now",
+    sub_title: "For the latest industry news & events - delivered right to you inbox.",
+    title: "Subscribe Now",
+
+}
+
+---
+
+<div class="bg-subscribe bg-cover rounded-t-[64px]">
+    <Container>
+        <div class="flex justify-center my-10">
+            <div class=" flex flex-col gap-10">
+                <div class="flex flex-col items-center justify-center gap-4">
+                    <HeadingTwoThreeXl>{ data.title }</HeadingTwoThreeXl>
+                    <HeadingThreeLgMediumCenter>{ data.sub_title }</HeadingThreeLgMediumCenter>
+                </div>
+                <div class="flex flex-col gap-10">
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-10">
+                        <Input 
+                            input_name="yourname"  
+                            input_placeholder="Your Name"                        
+                        />
+                        <Input 
+                            input_name="youremail"  
+                            input_placeholder="Your Email"                         
+                        />
+                    </div>
+                    <div class="flex justify-center">
+                        <a href={ data.button_link }><PrimaryButton>{ data.button_text }</PrimaryButton></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+</div>

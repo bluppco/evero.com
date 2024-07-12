@@ -1,0 +1,121 @@
+---
+
+// IMPORT ASTRO COMPONENTS
+import EveroHelpsCard from "@/components/home/where-evero-helps/card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingTwoThreeXl from "@/atoms/headings/two/three-xl/index.astro"
+import PictureContain from "@/atoms/picture/contain/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    source: "/images/whereeverohelpsimages/Artboard-6-4.webp",
+    title: "Where eVero Helps",
+
+}
+const evero_helps_card_data = [
+
+    {
+        description: "Spend less time verifying service details and more time delivering care with easy-to-use data capture options.",
+        link: "/",
+        link_text: "Electronic Visit Verification (EVV)",
+        sub_title: "eVero EVV",
+        title: "Electronic Visit Verification",
+    },
+    {
+        description: "Simplify consumer-directed care programs with automated workflows, detailed reporting and streamlined data collection.",
+        link: "/",
+        link_text: "Personal Care Services (CDPAP)",
+        sub_title: "Personal Care Services",
+        title: "Consumer-Directed Services",
+    },
+    {
+        description: "Tools and workflows promoting evidence-informed decision making to help support those with complex needs.",
+        link: "/",
+        link_text: "Crisis Response & Support",
+        sub_title: "Crisis Response & Support",
+        title: "Crisis Management",
+    },
+    {
+        description: "Bring order and clarity to documentation and reporting to elevate the level of care you provide.",
+        link: "/",
+        link_text: "Electronic Health Records  (EHR)",
+        sub_title: "eVero digitalAGENCY™",
+        title: "Electronic Health Records",
+    },
+    {
+        description: "Bring the care team and individuals together in a digital ecosystem to enable easy collaboration and timely, informed decision-making.",
+        link: "/",
+        link_text: "EMPOWER™ Self-Direction",
+        sub_title: "eVero EMPOWER™",
+        title: "Self-Direction",
+    },
+    {
+        description: "Optimize claim management and realize revenue faster with our comprehensive billing, payment, and revenue management module.",
+        link: "/",
+        link_text: "Billing & Revenue Cycle Management",
+        sub_title: "eVero ACCELERATE™",
+        title: "Billing & Revenue Cycle",
+    },
+
+]
+const card_data_first_half = evero_helps_card_data.slice(0, 3);
+const card_data_second_half = evero_helps_card_data.slice(3);
+
+---
+
+<section class="my-14 py-8 bg-where">
+    <div class="grid grid-cols-3">
+        <div class="col-span-3 md:col-span-2 flex flex-col items-center justify-center">
+            <div class="max-w-[600px] w-full flex flex-col gap-2 bg-white p-8 rounded-3xl">
+                <HeadingTwoThreeXl>{data.title}</HeadingTwoThreeXl>
+                <div class="evero_helps_slider">
+                    <div class="flex flex-col">
+                        {card_data_first_half.map((card, index) => (
+                            <EveroHelpsCard
+                                key={ index }
+                                description={ card.description }
+                                link_text={ card.link_text }
+                                sub_title={ card.sub_title }
+                                title={ card.title }
+                            />
+                        ))}
+                    </div>
+                    <div class="flex flex-col">
+                        {card_data_second_half.map((card, index) => (
+                            <EveroHelpsCard
+                                key={ index }
+                                description={ card.description }
+                                link_text={ card.link_text }
+                                sub_title={ card.sub_title }
+                                title={ card.title }
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div> 
+        </div>
+        <div class="max-md:hidden flex items-center justify-center">
+            <div class="max-w-[400px]">
+                <PictureContain 
+                    alternative_text="section image"
+                    source={ data.source }
+                />
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function(){
+        $('.evero_helps_slider').slick({
+            autoplay: true,
+            autoplaySpeed: 3000,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false,
+            infinite: true,        
+        });
+    });
+</script>

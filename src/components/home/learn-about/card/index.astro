@@ -1,0 +1,32 @@
+---
+
+// IMPORT ASTRO ATOMS
+import HeadingThreeLgBold from "@/atoms/headings/three/lg/bold/index.astro"
+import ParagraphLg from "@/atoms/paragraph/lg/index.astro"
+import PictureCover from "@/atoms/picture/cover/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    alternative_text,
+    description,
+    source,
+    title,
+
+} = Astro.props
+
+---
+<div class="flex flex-col gap-2">
+    <div class="h-56">
+        <a href="#">
+            <PictureCover
+                alternative_text={ alternative_text }
+                source={ source }
+            />
+        </a>
+    </div>
+    <div class="flex flex-col gap-2">
+        <HeadingThreeLgBold>{ title }</HeadingThreeLgBold>
+        <ParagraphLg>{ description }</ParagraphLg>
+    </div>
+</div>

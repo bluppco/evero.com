@@ -1,0 +1,59 @@
+---
+
+// IMPORT ASTRO COMPONENTS
+import Input from "@/components/home/contact/form/input/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingTwoThreeXl from "@/atoms/headings/two/three-xl/index.astro"
+import HeadingTwoXlGray from "@/atoms/headings/two/xl/gray/index.astro"
+import ParagraphBaseMedium from "@/atoms/paragraph/base/medium/index.astro"
+import WidthFullButton from "@/atoms/button/primary/width-full/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    button_link,
+    button_text,
+    description,
+    sub_title,
+    title,
+
+} = Astro.props
+
+// HARDCODED DATA
+const data = {
+    textarea_placeholder: "Your Message"
+}
+const input_data = [
+
+    {placeholder: "Your Name*"},
+    {placeholder: "Your email*"},
+    {placeholder: "What are you inquiring about ?*"},
+
+]
+
+---
+
+<div class="flex flex-col gap-8 px-6 max-w-[470px]">
+    <div class="flex flex-col gap-4">
+        <HeadingTwoThreeXl>{ title }</HeadingTwoThreeXl>       
+        <HeadingTwoXlGray>{ sub_title }</HeadingTwoXlGray>       
+        <ParagraphBaseMedium>{ description }</ParagraphBaseMedium>
+    </div>
+    <form class="flex flex-col gap-4">
+        {input_data.map((data) => (
+            <Input       
+                input_placeholder={ data.placeholder }
+            />
+        ))}
+        <textarea 
+            placeholder={ data.textarea_placeholder }
+            rows="6" 
+            cols="50" 
+            class="resize-none w-full border-b border-gray-300 bg-transparent py-2 focus:outline-none text-lg md:text-xl text-left placeholder:text-gray-700"
+        ></textarea>
+    </form>
+    <div class="flex items-center justify-center">
+        <a href={ button_link } class="w-full"><WidthFullButton>{ button_text }</WidthFullButton></a>
+    </div> 
+</div>

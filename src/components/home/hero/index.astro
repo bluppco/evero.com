@@ -1,0 +1,93 @@
+---
+
+// IMPORT ASTRO COMPONENTS
+import Cardleft from "@/components/home/hero/cardleft/index.astro"
+import Cardright from "@/components/home/hero/cardright/index.astro"
+
+// HARDCODED DATA
+const hero_card_data = [
+    {
+        alternative_text: "hero1",
+        button_text: "Learn more",
+        description: "With a proprietary, easy-to-use software platform that connects the entire care continuum and evolves as your needs do, eVero empowers outcomes for both caregivers and individuals with I/DD.",
+        source: "images/hero-img.webp",
+        sub_title: "Go above and beyond care.",
+        title: "Where innovative Technology meets human care"
+    },
+    {
+        alternative_text: "hero2",
+        button_text: "Learn more",
+        description: "Our platform optimizes workflows while increasing transparency, productivity, and compliance, enabling providers, caregivers, and those supported to work together towards the best care possible.",
+        source: "images/hero2-img.webp",
+        sub_title: "Focus on the care you provide not the technology around it.",
+        title: "Powering a connected care ecosystem. Empowering you."
+    },
+    {
+        alternative_text: "hero3",
+        button_text: "Self-Direction Services (SDS)",
+        description: "From Health Records and Self-Direction Services to Billing and Compliance, eVero’s integrated enterprise platform unifies your data so you can manage all facets of your business in one place.",
+        source: "images/hero3-img.webp",
+        sub_title: "Focus on the care you provide not the technology around it.",
+        title: "One platform. A world of inclusion, insight & impact."
+    },
+    {
+        alternative_text: "hero4",
+        button_text: "Learn More",
+        description: "We support you every step of the way! We continually advance our technology to address changing requirements. This ensures that our platform is always individualized, intuitive, and impactful.",
+        source: "images/hero4.webp",
+        sub_title: "Technology built for today with tomorrow in mind.",
+        title: "As I/DD industry needs evolve, so do we."
+    },
+    {
+        alternative_text: "hero5",
+        button_text: "Learn More",
+        description: "Bring clarity to your data! Our real-time reporting – from individualized metrics to big-picture analytics – drives timely, informed decision-making, empowering you to deliver the most personalized care possible.",
+        source: "images/hero5.webp",
+        sub_title: "Innovation begins with information.",
+        title: "Data insights that inform and transform."
+    }
+];
+
+---
+
+<div class="hero_slider">
+    {hero_card_data.map((card, index) => (
+        <div class="mb-9 sm:py-2">
+            {index % 2 === 0 ? (
+                <Cardleft
+                    alternative_text={ card.alternative_text }
+                    button_text={ card.button_text }
+                    description={ card.description }
+                    source={ card.source }
+                    sub_title={ card.sub_title }
+                    title={ card.title }
+                />
+            ) : (
+                <Cardright
+                    alternative_text={ card.alternative_text }
+                    button_text={ card.button_text }
+                    description={ card.description }
+                    source={ card.source }
+                    sub_title={ card.sub_title }
+                    title={ card.title }
+                />
+            )}
+        </div>
+    ))}
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('.hero_slider').slick({
+            prevArrow: false,
+            nextArrow: false,
+            autoplay: true,
+            autoplaySpeed: 7000,
+            fade:true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false,
+            infinite: true,        
+        });
+    });
+</script>

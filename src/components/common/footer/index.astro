@@ -1,0 +1,151 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO COLLECTION
+import { getCollection } from "astro:content"
+
+// IMPORT FOOTER COLLECTION
+let footer_data = await getCollection("footer")
+footer_data = footer_data.sort( ( a, b ) => a.data.order - b.data.order )
+
+// IMPORT ASTRO ATOMS
+import HeadingFour from "@/atoms/headings/four/base/semi-bold/index.astro"
+import HeadingLgThreeMedium from "@/atoms/headings/three/lg/medium/index.astro"
+import HeadingThreeOrange from "@/atoms/headings/three/base/orange/index.astro"
+import ParagraphSm from "@/atoms/paragraph/sm/index.astro"
+import ParagraphSmGray from "@/atoms/paragraph/sm/gray/index.astro"
+import ParagraphSmItalic from "@/atoms/paragraph/sm/medium/italic/center/index.astro"
+import ParagraphSmMedium from "@/atoms/paragraph/sm/medium/index.astro"
+import PictureContain from "@/atoms/picture/contain/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    copyright: "© 2024 eVero Corporation | All Rights Reserved",
+    description: "With a proprietary software platform that connects the entire care continuum, our easy-to-use ecosystem optimizes workflows while increasing transparency and productivity. Continually evolving our offerings to support better health outcomes, we’re a place where innovative technology meets human care.",
+    follow: "Follow us",
+    logo_source: "logo/logo.svg",
+    quote: "Empowering outcomes for both caregivers and individuals with I/DD.",
+    title: "Where innovative technology meets human care.",
+    verification_badge_1_source: "images/HIPAA.webp",
+    verification_badge_2_source: "images/Employability.webp",
+
+}
+const socials = [
+
+    {
+        alternative_text: "Linkedin",
+        link: "",
+        source:"/icons/socials/linkedin.svg"
+    },
+    {
+        alternative_text: "Linkedin",
+        link: "",
+        source:"/icons/socials/instagram.svg"
+    },
+    {
+        alternative_text: "Linkedin",
+        link: "",
+        source:"/icons/socials/facebook.svg"
+    },
+    {
+        alternative_text: "Linkedin",
+        link: "",
+        source:"/icons/socials/x.svg"
+    },
+
+]
+const verified_badge = [
+
+    {
+        alternative_text: "hippa",
+        link: "",
+        source:"/images/HIPAA.webp"
+    },
+    {
+        alternative_text: "hippa",
+        link: "",
+        source:"/images/Employability.webp"
+    }
+
+]
+
+---
+
+<Container>
+    <div class="flex flex-col gap-6">
+        <div class="flex flex-col gap-6 lg:gap-24 lg:flex-row justify-center py-6 border-t border-gray-300">
+            <div class="flex flex-col flex-1 gap-6">
+                <div class="w-32 h-12">
+                    <PictureContain
+                        alternative_text="logo"
+                        source={ data.logo_source }
+                    />
+                </div>
+                <div class="flex flex-col gap-6">
+                    <HeadingThreeOrange>{ data.title }</HeadingThreeOrange>
+                    <ParagraphSmMedium>{ data.description }</ParagraphSmMedium>
+                    <div class="p-4 border-2 border-orange-400 rounded-xl">
+                        <ParagraphSmItalic>{ data.quote }</ParagraphSmItalic>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-2">          
+                    <ul class="flex flex-col gap-6 sm:gap-0 sm:flex-row flex-wrap">
+                        {
+                            footer_data.map( ( item ) => {
+                                return (
+                                    <div class="px-4 flex flex-col gap-2">
+                                        <HeadingFour>{ item.data.title }</HeadingFour>
+                                        <li class="flex flex-col gap-2">
+                                            {
+                                                item.data.items.map( ( sub_item ) => {
+                                                    return(
+                                                        <div class="hover:text-orange-500 hover:underline underline-offset-2 decoration-1 cursor-pointer">
+                                                            <a href={ "/" + sub_item.link } aria-label={ "explore" + sub_item.title }>
+                                                                <ParagraphSm>{ sub_item.title }</ParagraphSm>
+                                                            </a>
+                                                        </div>
+                                                    )
+                                                })
+                                            }
+                                        </li>
+                                    </div>
+                                )
+                            })
+                        }
+                    </ul>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row gap-8 border-b border-gray-300 pb-6">
+            <div class="flex gap-4 max-md:justify-center w-full">
+                <HeadingLgThreeMedium>{ data.follow }</HeadingLgThreeMedium>
+                {socials.map((data) =>(
+                    <a href={ data.link }>
+                        <div class="size-8 overflow-hidden">
+                            <PictureContain
+                                alternative_text={ data.alternative_text }
+                                source={ data.source }
+                            />
+                        </div>
+                    </a>
+                ))}
+            </div>
+            <div class="flex justify-center gap-6 w-full">
+                {verified_badge.map((data) => (
+                    <div class="max-h-32 max-sm:h-16">
+                        <PictureContain
+                            alternative_text={ data.alternative_text }
+                            source={ data.source }
+                        />
+                    </div>
+                ))}
+            </div>
+        </div>
+        <div class="flex justify-center">
+            <ParagraphSmGray>{ data.copyright }</ParagraphSmGray>
+        </div>
+    </div>
+</Container>

@@ -1,0 +1,32 @@
+---
+
+// IMPORT ASTRO ATOMS
+import HeadingFourSmOrange from "@/atoms/headings/four/sm/orange/index.astro"
+import HeadingThreeTwoXlBold from "@/atoms/headings/three/two-xl/bold/index.astro"
+import ParagraphBaseGray from "@/atoms/paragraph/base/gray/index.astro"
+
+// GET ASTRO PROPS
+const {
+
+    description,
+    link,
+    link_text,
+    sub_title,
+    title,
+
+} = Astro.props
+
+---
+
+<div class="flex flex-col gap-3 my-6">
+    <div class="flex flex-col gap-2">
+        <HeadingThreeTwoXlBold>{ title }</HeadingThreeTwoXlBold>
+        <HeadingFourSmOrange>{ sub_title }</HeadingFourSmOrange>
+        <ParagraphBaseGray>{ description }</ParagraphBaseGray>
+    </div>
+    <div class="border-b-2 border-gray-200">
+        <a href={ link }>
+            <span class="text-gray-600 hover:text-orange-500 text-lg font-semibold">{ link_text }</span>
+        </a>
+    </div>
+</div>

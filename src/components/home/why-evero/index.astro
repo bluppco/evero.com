@@ -1,0 +1,64 @@
+---
+
+// IMPORT ASTRO LAYOUTS
+import Container from "@/layouts/container/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import WhyEveroCard from "@/components/home/why-evero/card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import HeadingThreeLgMediumCenter from "@/atoms/headings/three/lg/medium/center/index.astro"
+import HeadingTwoThreeXl from "@/atoms/headings/two/three-xl/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+	sub_title: "Our platform, processes and support model deliver impactful results today and into the future because everything we do at eVero follows these key pillars:",
+	title: "Why eVero?",
+
+}
+const whyEveroCardData = [
+
+    {
+        alternativeText: "empowering",
+        description: "Our digital ecosystem empowers providers and caregivers to deliver more personalized services, and individuals with I/DD to take control of their lives.",
+        source: "images/about-card-1.webp",
+        title: "mpowering",
+    },
+    {
+        alternativeText: "easy",
+        description: "We made everything easier. Our easy-to-use software simplifies processes, reporting and compliance, so you can focus on what you do best.",
+        source: "images/about-card-2.webp",
+        title: "asy",
+    },
+    {
+        alternativeText: "evolving",
+        description: "Rules, regulations and your needs are continually changing, so we evolve our technology today to deliver even more ease and impact tomorrow.",
+        source: "images/about-card-3.webp",
+        title: "volving",
+    },
+
+]
+
+---
+
+<Container>
+	<div class="flex flex-col gap-6 items-center justify-center">
+		<HeadingTwoThreeXl>{ data.title }</HeadingTwoThreeXl>
+		<div class="md:px-44">
+			<HeadingThreeLgMediumCenter>{ data.sub_title }</HeadingThreeLgMediumCenter>
+		</div>
+	</div>
+	<!-- Cards -->
+	<div class="flex flex-col md:flex-row gap-7 py-20">
+		{whyEveroCardData.map((card, index) => (
+            <WhyEveroCard
+                key={index}
+                alternativeText={card.alternativeText}
+                description={card.description}
+                source={card.source}
+                title={card.title}
+            />
+        ))}
+	</div>
+</Container>

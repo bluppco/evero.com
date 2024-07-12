@@ -1,0 +1,157 @@
+---
+
+// IMPORT ASTRO ATOMS
+import HeadingTwoThreeXl from "@/atoms/headings/two/three-xl/index.astro"
+import PrimaryButton from "@/atoms/button/primary/index.astro"
+
+// IMPORT ASTRO COMPONENTS
+import TestimonialCard from "@/components/home/testimonials/card/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    button_link:"/",
+    button_text: "Learn More",
+    title: "Don't just take our word for it!",
+
+}
+const testimonial_card_data = [
+
+    {
+        alternative_text: "brittany",
+        description: "The eVero team are fantastic collaborators who listen to the needs of both the people being supported and the agency, and they provide solutions in a timely manner. They always stay up to date on all relevant regulations and policy changes to assure they are offering the most person-centered cutting-edge software.",
+        source: "images/testimonial/brittany.webp",
+        sub_title: "AIM Services, Inc.",
+        title: "Brittany Hoosier",
+    },
+    {
+        alternative_text: "ashley",
+        description: "eVero has been truly life-changing for the people we support! Self-Direction is a volume program. The only platform that we have found that can handle volume and capacity while achieving efficiency and compliance is eVero.",
+        source: "images/testimonial/ashley.webp",
+        sub_title: "Community Services for Every 1",
+        title: "Ashley McLimans",
+    },
+    {
+        alternative_text: "melissa",
+        description: "eVero is a true partner. The eVero team works side by side with their providers to make sure that the system meets their needs and they encourage development to create more efficiencies.",
+        source: "images/testimonial/melisa.webp",
+        sub_title: "Access: Supports for Living",
+        title: "Melissa Short",
+    },
+    {
+        alternative_text: "rebeca",
+        description: "This is a game-changer! I can't imagine how we would navigate the COLA requirements without the tools that eVero has created. eVero's responsiveness to the needs of our Fl teams has been so tremendously appreciated! Thank you so much eVero team!",
+        source: "images/testimonial/rebeca.webp",
+        sub_title: "Heritage Christian Services",
+        title: "Rebecca Mack",
+    },
+    {
+        alternative_text: "davian",
+        description: "eVero does a great job of listening to their users and implementing necessary changes quickly. They also stay up to date with industry changes and requirements.",
+        source: "images/testimonial/davian.webp",
+        sub_title: "Daybreak Independent Services",
+        title: "Davian Gordan",
+    },
+    {
+        alternative_text: "frank",
+        description: "Our move to eVero could not have been more successful. It has simplified our administration processes, improved our claim accuracy, and allowed us to be way more efficient with our existing resources, freeing up staff time to work on other more strategic projects. We've realized revenues faster than before and been able to significantly increase our caseload without having to add staff.",
+        source: "images/testimonial/frank.webp",
+        sub_title: "The Arc Oneido-Lewis Chapter",
+        title: "Frank Coluccio",
+    },
+    {
+        alternative_text: "alexa",
+        description: "Moving to eVero has made everything simpler and more seamless. We now have easy access to information, which has allowed us to provide a higher level of customer service. And the safeguards that eVero builds into the system are invaluable. It catches missing documents, flags invalid data, and sends us alerts when we are out of compliance with requirements. It's amazing! The more things we can move to eVero the better!",
+        source: "images/testimonial/alexa.webp",
+        sub_title: "Person Centered Care Services",
+        title: "Alexa Donnelly",
+    },
+
+]
+
+---
+
+<section class="my-24 flex flex-col gap-6">
+    <div class="flex items-center justify-center">
+        <HeadingTwoThreeXl>{ data.title }</HeadingTwoThreeXl>
+    </div>
+    <div class="testimonial_slider">
+        {testimonial_card_data.map((card) => (
+            <TestimonialCard
+                alternative_text={card.alternative_text}
+                description={card.description}
+                source={card.source}
+                sub_title={card.sub_title}
+                title={card.title}
+            />
+        ))}
+    </div>
+    <div class="flex items-center justify-center">
+        <a href={ data.button_link }><PrimaryButton> { data.button_text }</PrimaryButton></a>
+    </div>
+</section>
+
+<script >
+    // SLICK SLIDER FUNCTION FOR RESPONSIVE CAROUSAL
+    document.addEventListener('DOMContentLoaded', function() {
+        $('.testimonial_slider').slick({
+            // DOT BUTTONS BELOW THE CAROUSAL ACTIVE
+            dots: true,
+
+            // PREVIOUS ARROW BUTTON DISABLED
+            prevArrow: false,
+
+            // NEXT ARROW BUTTON DISABLED
+            nextArrow: false,
+
+            // INFINITELY SCROLLING
+            infinite: true,
+
+            // SPEED OF SCROLLING
+            speed: 300,
+
+            // SLIDES TO SHOW FOR DIFFERENT WINDOWS
+            slidesToShow: 3,
+
+            // SLIDES TO SCROLL EVERYTIME WE SCROLL
+            slidesToScroll: 2,
+
+            // ENABLE CENTER MODE FOR NEXT SLIDES TO PEAK
+            centerMode: true, 
+
+            // HOW MUCH THE NEX SLIDES PEAK
+            centerPadding: '110px',
+            responsive: [
+                {
+                    // DESIGN OF SLIDES FOR BELOW 1024
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true,
+                        centerMode: false,
+                }
+                },
+                {
+                    // DESIGN OF SLIDES FOR BELOW 640
+                    breakpoint: 640,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        centerMode: false
+                }
+                },
+                {
+                    // DESIGN OF SLIDES FOR BELOW 480
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        centerMode: false
+                }
+                }
+            ]
+        });
+    });
+</script>

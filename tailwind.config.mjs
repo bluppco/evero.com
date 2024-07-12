@@ -2,7 +2,17 @@
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-		extend: {},
+		extend: {
+			backgroundImage: {
+				'where' : "url('../images/whereeverohelpsimages/background.webp')",
+				'subscribe' : "url('../images/subscribebg.webp')"
+			},
+
+			flexGrow: {
+				'2': 2,
+				'3': 3, 
+			},
+		},
 	},
 	plugins: [],
 }

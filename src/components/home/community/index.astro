@@ -1,0 +1,56 @@
+---
+
+// IMPORT ASTRO COMPONENTS
+import CommunityCard from "@/components/home/community/card/index.astro"
+
+// IMPORT ASTRO ATOMS
+import PictureCover from "@/atoms/picture/cover/index.astro"
+
+// HARDCODED DATA
+const data = {
+
+    source:"images/communityimage.webp",
+
+}
+const card_data = [
+
+    {
+        buttontext:"eVero Outreach",
+        description:"eVero Outreach holds a variety of interactive seminars and trainings and participates in community events all designed to enhance the lives of individuals in the human services community that we serve.",
+        link: "/",
+        subtitle:"Giving back to the community is a part of our company’s DNA.",
+        title:"Community Outreach"
+    },
+    {
+        buttontext:"eVero Ed",
+        description:"We are committed to the continued success of all of our users. eVero Ed is the one-stop shop for eVero training and education, offering 24/7 online access to easy-to-understand written and video resources, plus live webinar schedules, software release breakdowns, and so much more.",
+        link: "/",
+        subtitle:"Training doesn’t end after implementation.",
+        title:"Continuing Education & Training"
+    }
+
+]
+
+---
+
+<section class="grid md:grid-cols-2 gap-20">
+    <div class="hidden md:block rounded-r-[250px] overflow-hidden">
+        <PictureCover
+            alternative_text="community picture"
+            source={ data.source }
+        />
+    </div>
+    <div class="flex items-center justify-center md:pr-36 px-4 my-10">
+        <div class="flex flex-col gap-14">
+            {card_data.map((data) => (
+                <CommunityCard
+                    buttontext={ data.buttontext }
+                    description={ data.description }
+                    link={ data.link }
+                    subtitle={ data.subtitle }
+                    title={ data.title }
+                />
+            ))}
+        </div>
+    </div>
+</section>
