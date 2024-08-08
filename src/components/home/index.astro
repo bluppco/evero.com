@@ -1,5 +1,8 @@
 ---
 
+// GET ASTRO PROPS
+const { home_data } = Astro.props
+
 // IMPORT ASTRO COMPONENTS
 import WhyEvero from "@/components/home/why-evero/index.astro"
 import Community from "@/components/home/community/index.astro"
@@ -14,11 +17,58 @@ import Subscribe from "@/components/home/subscribe/index.astro"
 import Testimonial from "@/components/home/testimonials/index.astro"
 import WhereEverohelps from "@/components/home/where-evero-helps/index.astro"
 
+let home_sections_array = {
+
+}
+home_data.map( ( home_sections ) => {
+
+    home_sections_array = {
+
+        ...home_sections_array,
+        [ home_sections.properties.slug.string ]: home_sections
+
+    }
+
+})
+
+// HERO DATA ARRAY
+const hero_data_array = []
+
+hero_data_array.push(
+    ...[
+
+        home_sections_array["hero-1"],
+        home_sections_array["hero-2"],
+        home_sections_array["hero-3"],
+        home_sections_array["hero-4"],
+        home_sections_array["hero-5"]
+
+    ]
+)
+
+// WHY EVERO DATA ARRAY
+const why_evero_array = []
+
+why_evero_array.push(
+    ...[
+
+        home_sections_array["why-evero-card-1"],
+        home_sections_array["why-evero-card-2"],
+        home_sections_array["why-evero-card-3"],
+
+    ]
+)
+
 ---
 
 <Header />
-<Hero />
-<WhyEvero />
+<Hero
+    data={ hero_data_array }
+/>
+<WhyEvero
+    data={ home_sections_array["why-evero"] }
+    why_evero_array={ why_evero_array }
+/>
 <Helps />
 <Learn />
 <WhereEverohelps/>
