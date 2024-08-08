@@ -86,6 +86,20 @@ community_array.push(
     ]
 )
 
+// FEATURED BLOG DATA ARRAY
+const featured_blog_array = []
+
+featured_blog_array.push(
+    ...[
+
+        home_sections_array["featured-blog-card-1"],
+        home_sections_array["featured-blog-card-2"],
+        home_sections_array["featured-blog-card-3"],
+        home_sections_array["featured-blog-card-4"],
+
+    ]
+)
+
 ---
 
 <Header />
@@ -104,10 +118,13 @@ community_array.push(
 <Learn />
 <WhereEverohelps/>
 <Community 
-    community_array={ community_array }
     data={ home_sections_array["community"] }
+    community_array={ community_array }
 />
-<Featured/>
+<Featured
+    data_main={ home_sections_array["featured-blog"] }
+    featured_blog_array={ featured_blog_array }
+/>
 <Testimonial/>
 <Subscribe/>
 <ContactUs/>
