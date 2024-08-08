@@ -46,13 +46,29 @@ hero_data_array.push(
     ]
 )
 
+// WHY EVERO DATA ARRAY
+const why_evero_array = []
+
+why_evero_array.push(
+    ...[
+
+        home_sections_array["why-evero-card-1"],
+        home_sections_array["why-evero-card-2"],
+        home_sections_array["why-evero-card-3"],
+
+    ]
+)
+
 ---
 
 <Header />
 <Hero
     data={ hero_data_array }
 />
-<WhyEvero />
+<WhyEvero
+    data={ home_sections_array["why-evero"] }
+    why_evero_array={ why_evero_array }
+/>
 <Helps />
 <Learn />
 <WhereEverohelps/>
