@@ -48,32 +48,49 @@ const hero_card_data = [
     }
 ];
 
+const { data } = Astro.props
+
 ---
 
 <div class="hero_slider">
-    {hero_card_data.map((card, index) => (
-        <div class="mb-9 sm:py-2">
-            {index % 2 === 0 ? (
-                <Cardleft
-                    alternative_text={ card.alternative_text }
-                    button_text={ card.button_text }
-                    description={ card.description }
-                    source={ card.source }
-                    sub_title={ card.sub_title }
-                    title={ card.title }
-                />
-            ) : (
-                <Cardright
-                    alternative_text={ card.alternative_text }
-                    button_text={ card.button_text }
-                    description={ card.description }
-                    source={ card.source }
-                    sub_title={ card.sub_title }
-                    title={ card.title }
-                />
-            )}
-        </div>
-    ))}
+    {
+
+        data.map( ( card, index ) => (
+
+            <div class="mb-10 sm:py-2">
+                {
+
+                    index % 2 === 0 ? (
+
+                        <Cardleft
+                            alternative_text={ card.properties.title[0].plain_text }
+                            button_link={ card.properties.button_link[0].plain_text }
+                            button_text={ card.properties.button_text[0].plain_text }
+                            description={ card.properties.description[0].plain_text }
+                            source={ card.cover[0].url }
+                            sub_title={ card.properties.sub_title[0].plain_text }
+                            title={ card.properties.title[0].plain_text }
+                        />
+
+                    ) : (
+
+                        <Cardright
+                            alternative_text={ card.properties.title[0].plain_text }
+                            button_link={ card.properties.button_link[0].plain_text }
+                            button_text={ card.properties.button_text[0].plain_text }
+                            description={ card.properties.description[0].plain_text }
+                            source={ card.cover[0].url }
+                            sub_title={ card.properties.sub_title[0].plain_text }
+                            title={ card.properties.title[0].plain_text }
+                        />
+
+                    )
+
+                }
+            </div>
+        ))
+
+    }
 </div>
 
 <script>
@@ -87,7 +104,7 @@ const hero_card_data = [
             slidesToShow: 1,
             slidesToScroll: 1,
             dots: false,
-            infinite: true,        
+            infinite: true,
         });
     });
 </script>
