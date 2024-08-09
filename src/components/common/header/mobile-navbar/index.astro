@@ -1,8 +1,9 @@
 ---
 
 // IMPORT ASTRO ATOMS
+import Link from "@/atoms/links/index.astro"
+import ParagraphBaseHoverOrange from "@/atoms/paragraph/base/hover-orange/index.astro"
 import ParagraphMedium from "@/atoms/paragraph/base/medium/index.astro"
-import ParagraphSm from "@/atoms/paragraph/sm/index.astro"
 import PictureContain from "@/atoms/picture/contain/index.astro"
 
 // IMPORT ASTRO COLLECTION
@@ -28,39 +29,55 @@ import { FaPlus } from "react-icons/fa"
     </div>
     <ul class="flex flex-col">
         {
+
             header_data.map( ( item ) => {
+
                 return (
-                    <div class="">
+
+                    <div class="overflow-y-auto">
                         <li class="relative">
                             <div class={"flex items-center justify-between py-2 hover:text-orange-500 cursor-pointer w-full" + (item.data.has_dropdown ? " nav-item" : "")} data-id={ item.data.id }>
                                 <ParagraphMedium>{ item.data.title }</ParagraphMedium>
                                 { 
+
                                     item.data.has_dropdown && 
-                                    <span class="text-[10px] text-orange-400"><FaPlus/></span> 
+                                    <span class="text-[10px] text-orange-500"><FaPlus/></span> 
+
                                 }
                             </div>
                             {
+
                                 item.data.has_dropdown &&
                                 <div class="hidden nav-list" id={ item.data.id }>
                                     <div class="flex flex-col gap-3 border-b border-gray-300 pb-4">
                                         {
+
                                             item.data.items.map( ( sub_item ) => {
+
                                                 return(
-                                                    <div class="hover:bg-orange-400 hover:text-white cursor-pointer px-1">
-                                                        <a href={ "/" + sub_item.link } aria-label={ "explore" + sub_item.title }>
-                                                            <ParagraphSm>{ sub_item.title }</ParagraphSm>
-                                                        </a>
+
+                                                    <div class="cursor-pointer px-1">
+                                                        <Link href={ "/" + sub_item.link } aria_label={ "explore" + sub_item.title }>
+                                                            <ParagraphBaseHoverOrange>{ sub_item.title }</ParagraphBaseHoverOrange>
+                                                        </Link>
                                                     </div>
+
                                                 )
+
                                             })
+
                                         }
                                     </div>
                                 </div>
+
                             }
                         </li>
                     </div>
+
                 )
+
             })
+
         }
     </ul>
 </div>
@@ -68,37 +85,51 @@ import { FaPlus } from "react-icons/fa"
 <script>
      // FUCTION TO CLOSE DROPDOWNS
      function closeAllDropdowns() {
-        const navLists = document.querySelectorAll('.nav-list');
+
+        const navLists = document.querySelectorAll('.nav-list')
         navLists.forEach(navList => {
-            navList.classList.add('hidden');
-        });
+
+            navList.classList.add('hidden')
+
+        })
+
     }
 
     // ONCLICK OF NAVLINKS THE SUB LINKS WILL DROPDOWN
     document.addEventListener('DOMContentLoaded', () => {
-        const navItems = document.querySelectorAll('.nav-item');
-        const navCross = document.getElementById('nav-cross');
+
+        const navItems = document.querySelectorAll('.nav-item')
+        const navCross = document.getElementById('nav-cross')
         navItems.forEach(navItem => {
+
             navItem.addEventListener('click', function() {
-                const id = this.getAttribute('data-id');
-                const navList = document.getElementById(id);
+
+                const id = this.getAttribute('data-id')
+                const navList = document.getElementById(id)
                 
                 // CHECK IF CLICKED NAV LINK IS ALREADY OPEN
-                const isHidden = navList.classList.contains('hidden');
+                const isHidden = navList.classList.contains('hidden')
 
                 // CLOSE ALL DROPDOWNS
-                closeAllDropdowns();
+                closeAllDropdowns()
 
                 // TOGGLE HIDDEN FOR NAV LINK
                 if (isHidden) {
-                    navList.classList.remove('hidden');
+
+                    navList.classList.remove('hidden')
+
                 }
-            });
-        });
+
+            })
+
+        })
 
         // CLOSE ALL LIST WHEN CLICKED ON CLOSS ICON
         navCross.addEventListener('click', () => {
-            closeAllDropdowns();
-        });
-    });
+
+            closeAllDropdowns()
+
+        })
+
+    })
 </script>
