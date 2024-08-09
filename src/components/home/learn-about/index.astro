@@ -48,14 +48,20 @@ const learn_card_data = [
                 <HeadingTwoThreeXl>{ data.title }</HeadingTwoThreeXl>
             </div>
             <div class="flex flex-col gap-6 sm:flex-row">
-                {learn_card_data.map((card) => (
-                    <LearnCard
-                        alternative_text={ card.alternative_text }
-                        description={ card.description }
-                        source={ card.source }
-                        title={ card.title }
-                    />
-                ))}
+                {
+                
+                    learn_card_data.map( ( card ) => (
+
+                        <LearnCard
+                            alternative_text={ card.alternative_text }
+                            description={ card.description }
+                            source={ card.source }
+                            title={ card.title }
+                        />
+
+                    ))
+                
+                }
             </div>
         </div>
     </div>

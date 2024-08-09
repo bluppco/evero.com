@@ -15,12 +15,18 @@ const numberOfStars = 5
 ---
 
 <div class="flex">
-    {Array.from({ length: numberOfStars }).map((_, index) => (
-        <div class="size-4">
-            <PictureContain 
-                alternative_text={ `Star ${ index + 1 }` } 
-                source={ data.source } 
-            />
-        </div>
-    ))}
+    {
+    
+        Array.from({ length: numberOfStars }).map((_, index) => (
+
+            <div class="size-4">
+                <PictureContain 
+                    alternative_text={ `Star ${ index + 1 }` } 
+                    source={ data.source } 
+                />
+            </div>
+            
+        ))
+    
+    }
 </div>
