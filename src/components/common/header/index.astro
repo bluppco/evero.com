@@ -14,6 +14,7 @@ import Mobilenav from "@/components/common/header/mobile-navbar/index.astro"
 import { FaMinus, FaPlus } from "react-icons/fa"
 
 // IMPORT ATOMS
+import Link from "@/atoms/links/index.astro"
 import ParagraphLgHoverOrange from "@/atoms/paragraph/lg/bold/hover-orange/index.astro"
 import PictureContain from "@/atoms/picture/contain/index.astro"
 import PrimaryButton from "@/atoms/button/primary/index.astro"
@@ -52,7 +53,7 @@ const socials_source = [
 
 ---
 
-<header class="bg-white shadow-md p-2 z-10">
+<header class="bg-white p-2 z-10">
     <div class="md:hidden flex justify-between border-b border-gray-300 p-2">
         <div class="flex gap-2 items-center hover:cursor-pointer duration-150">
             <div class="size-6">
@@ -61,25 +62,31 @@ const socials_source = [
                     source="/icons/phone.svg"
                 />
             </div>
-            <a href="">
+            <Link href="">
                 <ParagraphLgHoverOrange>{ data.phone_no }</ParagraphLgHoverOrange>
-            </a>
+            </Link>
         </div>
         <div class="flex items-center gap-2">
-            {socials_source.map((data) =>(
-                <a href={ data.link }>
-                    <div class="size-6 overflow-hidden">
-                        <PictureContain
-                            alternative_text={ data.alternative_text }
-                            source={ data.source }
-                        />
-                    </div>
-                </a>
-            ))}
+            {
+            
+                socials_source.map( ( data ) => (
+
+                    <Link href={ data.link }>
+                        <div class="size-6 overflow-hidden">
+                            <PictureContain
+                                alternative_text={ data.alternative_text }
+                                source={ data.source }
+                            />
+                        </div>
+                    </Link>
+
+                ))
+            
+            }
         </div>
     </div>
     <div class="px-3 py-2 flex justify-between items-center md:gap-5 xl:gap-3 2xl:gap-8">
-        <div class="h-12">
+        <div class="h-10">
             <PictureContain
                 alternative_text="logo"
                 source="/logo/logo.svg"
@@ -92,64 +99,86 @@ const socials_source = [
                     source="/icons/phone.svg"
                 />
             </div>
-            <a href="">
+            <Link href="">
                 <ParagraphLgHoverOrange>{ data.phone_no }</ParagraphLgHoverOrange>
-            </a> 
+            </Link> 
         </div>
         <ul class="hidden xl:flex items-center md:gap-6 mac:gap-8 text-sm font-medium h-8">
             {
+
                 header_data.map( ( item ) => {
+
                     return (
-                        <li class="relative group flex items-center h-8 ">
-                            <div class="flex items-center gap-1 hover:text-orange-500">
-                                <a href={ "/" + item.data.link } aria-label={ "explore " + item.data.title }>
-                                    { item.data.title } 
-                                </a>
+
+                        <li class="relative group flex items-center h-8">
+                            <div class="flex items-center gap-1">
+                                <Link href={ "/" + item.data.link } aria_label={ "explore " + item.data.title }>
+                                    <span class="group-hover:text-orange-500 duration-300">{ item.data.title }</span>
+                                </Link>
                                 { 
+
                                     item.data.has_dropdown && 
-                                    <span class="text-[10px] mt-[3px] text-orange-400">
+                                    <span class="text-[10px] text-orange-500">
                                         <span class="group-hover:hidden"><FaPlus/></span>
                                         <span class="hidden group-hover:inline"><FaMinus/></span>
                                     </span> 
+
                                 }
                             </div>
                             {
+
                                 item.data.has_dropdown &&
-                                <div class="hidden group-hover:block group-hover:flex-col group-hover:transition-all duration-150 absolute shadow-md bg-white left-0 z-20 top-7 w-48 gap-2">
-                                    <div class="flex flex-col bg-white rounded-3xl">
+                                <div class="hidden group-hover:flex group-hover:flex-col group-hover:transition-all duration-150 absolute shadow-xl bg-white left-0 z-20 top-7 w-48 gap-2 rounded-3xl">
+                                    <div class="flex flex-col bg-white rounded-3xl overflow-hidden">
                                         {
-                                            item.data.items.map( ( sub_item, sub_item_index ) => {
+
+                                            item.data.items.map( ( sub_item ) => {
+
                                                 return(
-                                                    <div class="px-5 py-3 bg-white hover:bg-orange-400 hover:text-white cursor-pointer">
-                                                        <a href={ "/" + sub_item.link } aria-label={ "explore" + sub_item.title }>
+
+                                                    <div class="px-5 py-3 bg-white hover:bg-orange-500 hover:text-white cursor-pointer">
+                                                        <Link href={ "/" + sub_item.link } aria_label={ "explore" + sub_item.title }>
                                                             <span class="text-sm font-normal">{ sub_item.title }</span>
-                                                        </a>
+                                                        </Link>
                                                     </div>
+
                                                 )
+
                                             })
+
                                         }
                                     </div>
                                 </div>
+
                             }
                         </li>
+
                     )
+
                 })
+
             }
         </ul>
         <div class="max-xl:hidden">
             <PrimaryButton>{ data.buttontext }</PrimaryButton>
         </div>
         <div class="hidden md:flex items-center gap-2">
-            {socials_source.map((data) =>(
-                <a href={ data.link }>
-                    <div class="size-8 overflow-hidden">
-                        <PictureContain
-                            alternative_text={ data.alternative_text }
-                            source={ data.source }
-                        />
-                    </div>
-                </a>
-            ))}
+            {
+            
+                socials_source.map( ( data ) =>(
+
+                    <Link href={ data.link }>
+                        <div class="size-8 overflow-hidden">
+                            <PictureContain
+                                alternative_text={ data.alternative_text }
+                                source={ data.source }
+                            />
+                        </div>
+                    </Link>
+                    
+                ))
+            
+            }
         </div>
         <div class="xl:hidden cursor-pointer size-8 overflow-hidden" id="burger-menu">
             <PictureContain
