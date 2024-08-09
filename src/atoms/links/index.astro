@@ -1,0 +1,15 @@
+---
+
+// GET ASTRO PROPS
+const {
+
+    aria_lable,
+    href,
+
+} = Astro.props
+
+---
+
+<a href={ href } aria-lable={ aria_lable }>
+    <slot/>
+</a>
