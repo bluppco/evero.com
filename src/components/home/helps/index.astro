@@ -10,75 +10,88 @@ import HelpsCard from "@/components/home/helps/card/index.astro"
 import HeadingThreeLgMediumCenter from "@/atoms/headings/three/lg/medium/center/index.astro"
 import HeadingTwoThreeXl from "@/atoms/headings/two/three-xl/index.astro"
 
-// HARDCODED DATA
-const data = {
+// // HARDCODED DATA
+// const data = {
 
-	sub_title: "We support the unique needs of the Health and Human Services community.",
-	section_bottom_first: "The eVero platform",
-	section_bottom_second: "creates a digital ecosystem that empowers the entire care continuum to work together to ensure the best care possible",
-	title: "Who eVero Helps",
+// 	sub_title: "We support the unique needs of the Health and Human Services community.",
+// 	section_bottom_first: "The eVero platform",
+// 	section_bottom_second: "creates a digital ecosystem that empowers the entire care continuum to work together to ensure the best care possible",
+// 	title: "Who eVero Helps",
 
-}
-const helps_card_data = [
+// }
+// const helps_card_data = [
 
-	{
-		alternativeText:"agencies",
-		description:"Streamlined process flows that boost transparency, compliance, and productivity.",
-		source:"images/Agencies.webp",
-		title:"PROVIDER AGENCIES",
-	},
-	{
-		alternativeText:"families",
-		description:"Intuituve tools empower individuals to proactively manage their Self-Directed care.",
-		source:"images/Families.webp",
-		title:"INDIVIDUALS & FAMILY",
-	},
-	{
-		alternativeText:"fiscal",
-		description:"Automation and integrations help simplify budgeting, documentation and billing.",
-		source:"images/Fiscal-Intermediaries.webp",
-		title:"FISCAL INTERMEDIARIES",
-	},
-	{
-		alternativeText:"brokers",
-		description:"Unified caseload management with real-time insight into budget usage and trends.",
-		source:"images/Brokers.webp",
-		title:"SUPPORT BROKERS",
-	},
-	{
-		alternativeText:"selfhired",
-		description:"Easy and accurate EVV and service data collection right at the point of care.",
-		source:"images/Self-Hired.webp",
-		title:"SELF-HIRED STAFF",
-	},
+// 	{
+// 		alternativeText:"agencies",
+// 		description:"Streamlined process flows that boost transparency, compliance, and productivity.",
+// 		source:"images/Agencies.webp",
+// 		title:"PROVIDER AGENCIES",
+// 	},
+// 	{
+// 		alternativeText:"families",
+// 		description:"Intuituve tools empower individuals to proactively manage their Self-Directed care.",
+// 		source:"images/Families.webp",
+// 		title:"INDIVIDUALS & FAMILY",
+// 	},
+// 	{
+// 		alternativeText:"fiscal",
+// 		description:"Automation and integrations help simplify budgeting, documentation and billing.",
+// 		source:"images/Fiscal-Intermediaries.webp",
+// 		title:"FISCAL INTERMEDIARIES",
+// 	},
+// 	{
+// 		alternativeText:"brokers",
+// 		description:"Unified caseload management with real-time insight into budget usage and trends.",
+// 		source:"images/Brokers.webp",
+// 		title:"SUPPORT BROKERS",
+// 	},
+// 	{
+// 		alternativeText:"selfhired",
+// 		description:"Easy and accurate EVV and service data collection right at the point of care.",
+// 		source:"images/Self-Hired.webp",
+// 		title:"SELF-HIRED STAFF",
+// 	},
 
-]
+// ]
+const {
+
+	data_bottom,
+	data,
+	helps_array,
+
+} = Astro.props
 
 ---
 
 <Container>
 	<div class="my-10 flex flex-col gap-10">
 		<div class="flex flex-col gap-6 items-center justify-center">
-			<HeadingTwoThreeXl>{ data.title }</HeadingTwoThreeXl>
-			<HeadingThreeLgMediumCenter>{ data.sub_title }</HeadingThreeLgMediumCenter>
+			<HeadingTwoThreeXl>{ data.properties.title[0].plain_text }</HeadingTwoThreeXl>
+			<HeadingThreeLgMediumCenter>{ data.properties.sub_title[0].plain_text }</HeadingThreeLgMediumCenter>
 		</div>
 		<!-- Cards -->
 		<div class="flex flex-col gap-8">
 			<div class="flex flex-col md:flex-row md:flex-wrap gap-8 items-center justify-center">
-				{helps_card_data.map((data) => (
-					<HelpsCard
-						alternativeText={ data.alternativeText }
-						description={ data.description }
-						source={ data.source }
-						title={ data.title }
-					/>
-				))}
+				{
+				
+					helps_array.map( ( card ) => (
+
+						<HelpsCard
+							alternativeText={ card.properties.title[0].plain_text }
+							description={ card.properties.description[0].plain_text }
+							source={ card.cover[0].url }
+							title={ card.properties.title[0].plain_text } 
+						/>
+
+					))
+				
+				}
 			</div>
 		</div>
 		<div class="flex items-center justify-center md:px-40">
 			<span class="text-xl text-center text-gray-500">
-				<span class="text-orange-400">{ data.section_bottom_first }</span>
-				{data.section_bottom_second}
+				<!-- <span class="text-orange-400">{ data_bottom.properties.title[0].plain_text }</span>
+				{ data_bottom.properties.sub_title[0].plain_text } -->
 			</span>
 		</div>
 	</div>

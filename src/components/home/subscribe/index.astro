@@ -9,6 +9,7 @@ import Input from "@/components/home/subscribe/input/index.astro"
 // IMPORT ASTRO ATOMS
 import HeadingThreeLgMediumCenter from "@/atoms/headings/three/lg/medium/center/index.astro"
 import HeadingTwoThreeXl from "@/atoms/headings/two/three-xl/index.astro"
+import Link from "@/atoms/links/index.astro"
 import PrimaryButton from "@/atoms/button/primary/index.astro"
 
 // HARDCODED DATA
@@ -26,7 +27,7 @@ const data = {
 <div class="bg-subscribe bg-cover rounded-t-[64px]">
     <Container>
         <div class="flex justify-center my-10">
-            <div class=" flex flex-col gap-10">
+            <div class="flex flex-col gap-10">
                 <div class="flex flex-col items-center justify-center gap-4">
                     <HeadingTwoThreeXl>{ data.title }</HeadingTwoThreeXl>
                     <HeadingThreeLgMediumCenter>{ data.sub_title }</HeadingThreeLgMediumCenter>
@@ -43,7 +44,9 @@ const data = {
                         />
                     </div>
                     <div class="flex justify-center">
-                        <a href={ data.button_link }><PrimaryButton>{ data.button_text }</PrimaryButton></a>
+                        <Link href={ data.button_link }>
+                            <PrimaryButton>{ data.button_text }</PrimaryButton>
+                        </Link>
                     </div>
                 </div>
             </div>

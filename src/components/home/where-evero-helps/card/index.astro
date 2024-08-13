@@ -3,6 +3,7 @@
 // IMPORT ASTRO ATOMS
 import HeadingFourSmOrange from "@/atoms/headings/four/sm/orange/index.astro"
 import HeadingThreeTwoXlBold from "@/atoms/headings/three/two-xl/bold/index.astro"
+import Link from "@/atoms/links/index.astro"
 import ParagraphBaseGray from "@/atoms/paragraph/base/gray/index.astro"
 
 // GET ASTRO PROPS
@@ -25,8 +26,8 @@ const {
         <ParagraphBaseGray>{ description }</ParagraphBaseGray>
     </div>
     <div class="border-b-2 border-gray-200">
-        <a href={ link }>
+        <Link href={ link }>
             <span class="text-gray-600 hover:text-orange-500 text-lg font-semibold">{ link_text }</span>
-        </a>
+        </Link>
     </div>
 </div>

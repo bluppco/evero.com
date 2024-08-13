@@ -2,6 +2,7 @@
 
 // IMPORT ASTRO ATOMS
 import HeadingTwoThreeXl from "@/atoms/headings/two/three-xl/index.astro"
+import Link from "@/atoms/links/index.astro"
 import PrimaryButton from "@/atoms/button/primary/index.astro"
 
 // IMPORT ASTRO COMPONENTS
@@ -59,19 +60,27 @@ const featured_card = [
         <HeadingTwoThreeXl>{ data.title }</HeadingTwoThreeXl>
     </div>
     <div class="responsive">
-        {featured_card.map((data) => (
-            <FeaturedCard
-                alternative_text={ data.alternative_text }
-                date={ data.date }
-                description={ data.description }
-                link={ data.link }
-                source={ data.source }
-                title={ data.title }
-            />
-        ))}
+        {
+        
+            featured_card.map( ( data ) => (
+
+                <FeaturedCard
+                    alternative_text={ data.alternative_text }
+                    date={ data.date }
+                    description={ data.description }
+                    link={ data.link }
+                    source={ data.source }
+                    title={ data.title }
+                />
+
+            ))
+        
+        }
     </div>
     <div class="flex items-center justify-center">
-        <a href={ data.button_link }><PrimaryButton>{ data.button_text }</PrimaryButton></a>
+        <Link href={ data.button_link }>
+            <PrimaryButton>{ data.button_text }</PrimaryButton>
+        </Link>
     </div>
 </section>
 

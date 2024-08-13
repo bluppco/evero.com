@@ -3,15 +3,16 @@
 // IMPORT ASTRO ATOMS
 import HeadingTwoThreeXl from "@/atoms/headings/two/three-xl/index.astro"
 import HeadingThreeBase from "@/atoms/headings/three/base/index.astro"
+import Link from "@/atoms/links/index.astro"
 import ParagraphBaseGray from "@/atoms/paragraph/base/gray/index.astro"
 import PrimaryButton from "@/atoms/button/primary/index.astro"
 
 // GET ASTRO PROPS
 const {
 
+    button_link,
     buttontext,
     description,
-    button_link,
     subtitle,
     title,
 
@@ -25,7 +26,7 @@ const {
         <HeadingThreeBase>{ subtitle }</HeadingThreeBase>
         <ParagraphBaseGray>{ description }</ParagraphBaseGray>
     </div>
-    <a href={ button_link }>
+    <Link href={ button_link }>
         <PrimaryButton>{ buttontext }</PrimaryButton>
-    </a>   
+    </Link>   
 </div>

@@ -3,6 +3,7 @@
 // IMPORT ASTRO ATOMS
 import HeadingOne from "@/atoms/headings/one/five-xl/index.astro"
 import HeadingThree from "@/atoms/headings/three/lg/medium/responsive-center/index.astro"
+import Link from "@/atoms/links/index.astro"
 import ParagraphBaseGrayCenter from "@/atoms/paragraph/base/gray/responsive-center/index.astro"
 import PictureCover from "@/atoms/picture/cover/index.astro"
 import PrimaryButton from "@/atoms/button/primary/index.astro"
@@ -34,7 +35,9 @@ const {
             <HeadingOne>{ title }</MainHeading>
             <ParagraphBaseGrayCenter>{ description }</ParagraphBaseGrayCenter>
             <HeadingThree>{ sub_title }</HeadingThree>
-            <a href={ button_link }><PrimaryButton>{ button_text }</PrimaryButton></a>
+            <Link href={ button_link }>
+                <PrimaryButton>{ button_text }</PrimaryButton>
+            </Link>
         </div>
     </div>
 </div>

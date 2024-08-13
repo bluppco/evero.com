@@ -59,6 +59,47 @@ why_evero_array.push(
     ]
 )
 
+// HELPS DATA ARRAY
+const helps_array = []
+
+helps_array.push(
+    ...[
+
+        home_sections_array["helps-card-1"],
+        home_sections_array["helps-card-2"],
+        home_sections_array["helps-card-3"],
+        home_sections_array["helps-card-4"],
+        home_sections_array["helps-card-5"],
+
+    ]
+)
+
+// COMMUNITY DATA ARRAY
+const community_array = []
+
+community_array.push(
+    ...[
+
+        home_sections_array["community-card-1"],
+        home_sections_array["community-card-2"],
+
+    ]
+)
+
+// FEATURED BLOG DATA ARRAY
+const featured_blog_array = []
+
+featured_blog_array.push(
+    ...[
+
+        home_sections_array["featured-blog-card-1"],
+        home_sections_array["featured-blog-card-2"],
+        home_sections_array["featured-blog-card-3"],
+        home_sections_array["featured-blog-card-4"],
+
+    ]
+)
+
 ---
 
 <Header />
@@ -69,11 +110,21 @@ why_evero_array.push(
     data={ home_sections_array["why-evero"] }
     why_evero_array={ why_evero_array }
 />
-<Helps />
+<Helps 
+    data={ home_sections_array["helps"] }
+    data_bottom={ home_sections_array["helps-bottom"] }
+    helps_array={ helps_array }
+/>
 <Learn />
 <WhereEverohelps/>
-<Community/>
-<Featured/>
+<Community 
+    data={ home_sections_array["community"] }
+    community_array={ community_array }
+/>
+<Featured
+    data_main={ home_sections_array["featured-blog"] }
+    featured_blog_array={ featured_blog_array }
+/>
 <Testimonial/>
 <Subscribe/>
 <ContactUs/>
